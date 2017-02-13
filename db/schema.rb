@@ -20,9 +20,6 @@ ActiveRecord::Schema.define(version: 20140627133300) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "images" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
   create_table "scores", force: true do |t|
     t.decimal  "recognizability"
     t.string   "user_id"
@@ -32,8 +29,5 @@ ActiveRecord::Schema.define(version: 20140627133300) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
 
 end
