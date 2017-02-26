@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
 
   def new
-     @title = "Register"
-     @user = User.new
+    @title = "Register"
+    @user = User.new
   end
 
   def show
   end
 
-  def create  
+  def create
     @user = User.new(user_params)
     if @user.save
       redirect_to intro_path
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @title = "Question"
     if session[:content].nil?
       session[:content] = 1
-    else 
+    else
       session[:content] = 2
     end
   end
@@ -34,14 +34,14 @@ class UsersController < ApplicationController
       session[:content] = 2
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
-    else 
+    else
       @user = User.find_by!(name: session[:userid])
       @user.content2 = params[:answer]
       @user.update_attribute(:content2, @user.content2)
       session[:content] = nil
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
-    end 
+    end
   end
 
   def crowdsourceuser
@@ -55,11 +55,11 @@ class UsersController < ApplicationController
     redirect_to intro_path
   end
 
-private
+  private
 
   def user_params
-    params.require(:user).permit(:content1, :content2, :id, :campaign_id, :start_time, 
-      :name, :email, :gender, :age)
+    params.require(:user).permit(:content1, :content2, :id, :campaign_id, :start_time,
+                                 :name, :email, :gender, :age)
   end
 
 end

@@ -14,18 +14,18 @@
 ActiveRecord::Schema.define(version: 20140627133300) do
 
   create_table "campaign_sets", force: true do |t|
-    t.string   "images"
-    t.integer  "scale"
+    t.string "images"
+    t.integer "scale"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "scores", force: true do |t|
-    t.decimal  "recognizability"
-    t.string   "user_id"
-    t.string   "img_id"
-    t.string   "scale"
-    t.integer  "score"
+    t.decimal "recognizability"
+    t.string "user_id"
+    t.string "img_id"
+    t.string "scale"
+    t.integer "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
