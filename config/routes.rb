@@ -14,10 +14,13 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'intro' => 'pages#intro'
   get 'totraining' => 'pages#totraining'
+
+  # training links
   get 'training' => 'pages#training'
+  get 'training2' => 'pages#training2'
+  get 'example1' => 'pages#example1'
+
   get 'trainreco' => 'pages#trainreco'
-  get 'trainaest' => "pages#trainaest"
-  get 'trainend' => "pages#trainend"
   get 'ready' => 'pages#ready'
   get 'show' => 'scores#new'
   get 'checkimage' => 'scores#checkimage'
