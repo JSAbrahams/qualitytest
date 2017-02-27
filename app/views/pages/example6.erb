@@ -3,9 +3,11 @@
 <%= session[:subtask] %>
 <%= session[:first] %>-->
 
-<%= render 'layouts/scaleBIN' %>
+<div align="center">
+  <%= render 'layouts/describeObject' %>
+</div>
 
 <div class="buttons">
-  <%= link_to "Next", ready_path, class: "btn btn-large btn-primary"%>
+  <%= link_to "Next", ready_path, class: "btn btn-large btn-primary" %>
 </div>
 
