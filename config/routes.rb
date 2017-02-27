@@ -8,33 +8,35 @@ Rails.application.routes.draw do
   get 'pages/index/:user/:mw' => 'pages#index', user: :user, mw: :mw
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
   post 'crowdsourceuser' => 'users#crowdsourceuser'
   get 'newuser' => 'users#new'
   post 'newuser' => 'users#create'
-  get 'about' => 'pages#about'
-  get 'intro' => 'pages#intro'
-  get 'totraining' => 'pages#totraining'
-
-  # training links
-  get 'training' => 'pages#training'
-  get 'training2' => 'pages#training2'
-  get 'example1' => 'pages#example1'
-  get 'example2' => 'pages#example2'
-  get 'example3' => 'pages#example3'
-  get 'example4' => 'pages#example4'
-  get 'example5' => 'pages#example5'
-  get 'example6' => 'pages#example6'
-  get 'ready' => 'pages#ready'
-
-  get 'trainreco' => 'pages#trainreco'
-  get 'show' => 'scores#new'
-  get 'checkimage' => 'scores#checkimage'
   post 'update' => 'users#update'
   get 'content' => 'users#content'
   get 'contentanswer' => 'users#contentanswer'
-  get 'contentcheck' => 'scores#contentcheck'
+
+  get 'about' => 'pages#about'
+  get 'intro' => 'pages#intro'
+  get 'totraining' => 'pages#totraining'
+  get 'trainreco' => 'pages#trainreco'
   get 'end' => 'pages#end'
   get 'endwrong' => 'pages#endwrong'
+
+  get 'training' => 'training#training'
+  get 'training2' => 'training#training2'
+  get 'ready' => 'training#ready'
+
+  get 'distortionVisible' => 'questions#distortionVisible'
+  get 'semanticRecognition' => 'questions#semanticRecognition'
+  get 'indoorDetails' => 'questions#indoorDetails'
+  get 'outdoorNatural' => 'questions#outdoorNatural'
+  get 'outdoorManMade' => 'questions#outdoorManMade'
+  get 'describeObject' => 'questions#describeObject'
+
+  get 'show' => 'scores#new'
+  get 'checkimage' => 'scores#checkimage'
+  get 'contentcheck' => 'scores#contentcheck'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

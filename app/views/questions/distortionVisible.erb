@@ -3,11 +3,13 @@
 <%= session[:subtask] %>
 <%= session[:first] %>-->
 
+<p>Did you see any distortion in this image?</p>
+
 <div align="center">
-  <%= render 'layouts/outdoorManMadeDetails' %>
+  <%= render 'layouts/distortionVisible' %>
 </div>
 
 <div class="buttons">
-  <%= link_to "Next", example6_path, class: "btn btn-large btn-primary"%>
+  <%= link_to "Next", example2_path, class: "btn btn-large btn-primary" %>
 </div>
 
