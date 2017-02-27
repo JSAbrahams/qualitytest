@@ -21,14 +21,6 @@
   </div>
 </div>
 
-<%= form_for(@score) do |f| %>
-    <%= f.hidden_field :score, :id => "amount" %>
-    <%= f.hidden_field :recognizability, :id => "amount-Rec" %>
-    <%= f.hidden_field :img_id, :value => session[:images][(session[:img_num].to_i)].to_i %>
-    <%= f.hidden_field :user_id, :value => session[:userid].to_s %>
-
-    <%= f.hidden_field :scale, :value => session[:scale].to_s %>
-
-    <div class="buttons"><%= f.submit "Next", class: "btn btn-large btn-primary" %></div>
-
-<% end %>
+<div class="buttons">
+  <%= link_to "Next", distortionVisible_path, class: "btn btn-large btn-primary" %>
+</div>
