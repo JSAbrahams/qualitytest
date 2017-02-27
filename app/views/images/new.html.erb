@@ -28,9 +28,6 @@
     <%= f.hidden_field :user_id, :value => session[:userid].to_s %>
 
     <%= f.hidden_field :scale, :value => session[:scale].to_s %>
-    <% if session[:scale] == 1 %>
-        <%= render 'layouts/scaleACR' %>
-    <% end %>
 
     <div class="buttons"><%= f.submit "Next", class: "btn btn-large btn-primary" %></div>
 
