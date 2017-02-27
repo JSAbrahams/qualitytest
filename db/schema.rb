@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140627133300) do
     t.datetime "updated_at"
   end
 
-  create_table "scores", force: true do |t|
+  create_table "images", force: true do |t|
     t.decimal "recognizability"
     t.string "user_id"
     t.string "img_id"

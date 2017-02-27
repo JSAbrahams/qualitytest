@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @title %> | Image Quality Test</title> 
-  <%= stylesheet_link_tag "custom", :media => "all"%>
+  <title><%= @title %> | Image Quality Test</title>
+  <%= stylesheet_link_tag "custom", :media => "all" %>
   <%= stylesheet_link_tag "bootstrap/bootstrap", :media => "all" %>
   <%= stylesheet_link_tag "jquery-ui.min", :media => "all" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -12,14 +12,14 @@
   <%= javascript_include_tag "scales" %>
   <%= javascript_include_tag "buttons" %>
 
-  <%= render 'layouts/shim' %> 
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-	<%= render 'layouts/header' %> 
-	<div class="container">
-		<%= yield %>
-		<%= render 'layouts/footer' %>
-		
-	</div>
+<%= render 'layouts/header' %>
+<div class="container">
+  <%= yield %>
+  <%= render 'layouts/footer' %>
+
+</div>
 </body>
 </html>
