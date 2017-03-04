@@ -15,18 +15,6 @@ class ImagesController < ApplicationController
     #if session[:img_num].to_i < session[:images].length
     @score = Score.new
     #set image to be shown
-    print 'IMAGES AND IMG_NUM'
-    print session[:images]
-    print session[:img_num]
-    print session[:img_num].to_i
-    a = session[:images]
-    b = session[:img_num].to_i
-    print a
-    print b
-    print "\n"
-    print (a[3]).to_i
-    print "\n"
-    print (a[b.to_i]).to_i
     @img = Image.find((session[:images][(session[:img_num].to_i)].to_i))
   end
 
