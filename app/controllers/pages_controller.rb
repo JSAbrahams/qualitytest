@@ -6,14 +6,22 @@ class PagesController < ApplicationController
       session[:userid] = rand(1..1000)
       session[:images] = CampaignSet.find(session[:campaign]).images
       session[:scale] = CampaignSet.find(session[:campaign]).scale
+      #randomize images
+      session[:images] = session[:images].split(" ").shuffle
+      session[:img_num] = '-1';
+
       redirect_to newuser_path
-    elsif session[:campaign] = 2 # session[:campaign] = params[:campaign]
+    elsif session[:campaign] == 2 # session[:campaign] = params[:campaign]
       session[:userid] = params[:user].to_s
       @finalstring = params[:mw] += params[:user] += "8c25a8f5e42c00a6f814f45ac764084f4b20a5c476be47ac2a674b82d0ba541f"
       session[:vcode] = Digest::SHA2.hexdigest(@finalstring)
       session[:vcode] = "mw-" + session[:vcode].to_s
       session[:images] = CampaignSet.find(session[:campaign]).images
       session[:scale] = CampaignSet.find(session[:campaign]).scale
+      #randomize images
+      session[:images] = session[:images].split(" ").shuffle
+      session[:img_num] = '-1';
+
       session[:microworkers] = '1'
       session[:content] = nil
     end
@@ -71,9 +79,6 @@ class PagesController < ApplicationController
 
   def ready
     @title = "Begin Test"
-    #randomize images
-    session[:images] = session[:images].split(" ").shuffle
-    session[:img_num] = '0';
   end
 
   def totraining
