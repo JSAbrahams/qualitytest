@@ -45,6 +45,14 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+
+  # Go to the next page in the questions. Next page depends on the filled in semantic type of the image and the current page
+  resources :questions do
+    collection do
+      get :update
+    end
+  end
+
   resources :images
 
   resources :users
