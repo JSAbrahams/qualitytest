@@ -27,13 +27,7 @@ Rails.application.routes.draw do
   get 'training2' => 'training#training2'
   get 'ready' => 'training#ready'
 
-  get 'distortionVisible' => 'questions#distortionVisible'
-  get 'semanticRecognition' => 'questions#semanticRecognition'
-  get 'indoorDetails' => 'questions#indoorDetails'
-  get 'outdoorNatural' => 'questions#outdoorNatural'
-  get 'outdoorManMade' => 'questions#outdoorManMade'
-  get 'describeObject' => 'questions#describeObject'
-  get 'imageQuality' => 'questions#imageQuality'
+  get 'questions' => 'questions#questions'
 
   get 'show' => 'images#new'
   get 'checkimage' => 'images#checkimage'
@@ -49,7 +43,7 @@ Rails.application.routes.draw do
   # Go to the next page in the questions. Next page depends on the filled in semantic type of the image and the current page
   resources :questions do
     collection do
-      get :update
+      get :next_page
     end
   end
 
