@@ -3,7 +3,23 @@
 <%= session[:subtask] %>
 <%= session[:first] %>-->
 
-<%= yield question %>
+<div class="current_question" align="center">
+  <% if @state == "init_state" %>
+      <%= render partial: "layouts/semanticRecognition" %>
+  <% elsif @state == "distortion_visible_state" %>
+      <%= render partial: "layouts/distortionVisible" %>
+  <% elsif @state == "describe_details_state" %>
+      <% if @type == :indoor %>
+          <%= render partial: "layouts/indoorDetails" %>
+      <% elsif @type == :outdoor_natural %>
+          <%= render partial: "layouts/outdoorNaturalDetails" %>
+      <% elsif @type == :outdoor_man_made %>
+          <%= render partial: "layouts/outdoorManMadeDetails" %>
+      <% end %>
+  <% else %>
+      <%= link_to "done", ready_path %> <!-- TODO automatically link instead -->
+  <% end %>
+</div>
 
 <div class="buttons">
   <%= link_to "Next", questions_path, class: "btn btn-large btn-primary" %>
