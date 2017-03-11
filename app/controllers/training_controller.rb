@@ -4,11 +4,12 @@ class TrainingController < ApplicationController
   end
 
   public
-  def self.isTraining
+
+  def self.is_training
     @training
   end
 
-  def self.setTraining(training)
+  def self.set_training(training)
     @training = training
   end
 

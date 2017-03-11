@@ -4,19 +4,7 @@
 <%= session[:first] %>-->
 
 <div align="center">
-  <% if @state == 'semanticRecognition' %>
-      <%= render partial: 'layouts/semanticRecognition' %>
-  <% elsif @state == 'distortion_visible_state' %>
-      <%= render partial: 'layouts/distortionVisible' %>
-  <% elsif @state == 'describe_details_state' %>
-      <% if @type == 'indoor' %>
-          <%= render partial: 'layouts/indoorDetails' %>
-      <% elsif @type == 'outdoor_natural' %>
-          <%= render partial: 'layouts/outdoorNaturalDetails' %>
-      <% elsif @type == 'outdoor_man_made' %>
-          <%= render partial: 'layouts/outdoorManMadeDetails' %>
-      <% end %>
-  <% end %>
+  <%= render partial: "layouts/#{@state}"%>
 </div>
 
 <div class="buttons">

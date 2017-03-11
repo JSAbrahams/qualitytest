@@ -1,33 +1,29 @@
 class QuestionController < ApplicationController
   def new
-    session[:type] = params[:semantic].to_s
+    session[:type] = params[:semantic]
   end
 
   def question
-    if session[:state].nil?
-      session[:state] = 'semantic_recognition_state'
-    end
-
-    @state = session[:state]
-    @type = session[:type]
+    @state = session[:state].nil? ? 'semantic_recognition_state' : session[:state]
   end
 
   def next_page
-    # state pattern would be much better, this is a bit ugly
-    if session[:state].nil? || session[:state] == 'semantic_recognition_state' || session[:state] == 'finished'
-      session[:state] = 'distortion_visible_state'
-    elsif session[:state]== 'distortion_visible_state'
-      session[:state] = 'semantic_recognition_state'
-    elsif session[:state] == 'semantic_recognition_state'
-      session[:state] = 'describe_details_state'
-    elsif session[:state] == 'describe_details_state'
-      session[:state] = 'finished'
-      if TrainingController.isTraining
-        TrainingController.setTraining(false)
-        redirect_to(ready_path)
-      else
-        redirect_to(new_images_path)
-      end
-    end
+    @state = case session[:state]
+               when 'distortion visible_state' then
+                 'semantic_recognition_state'
+               when 'semantic_recognition_state' then
+                 case session[:type]
+                   when 'indoor' then
+                     'indoor_detail_state'
+                   when 'outdoor_natural' then
+                     'outdoor_natural_detail_state'
+                   else
+                     'outdoor_man_made_detail_state'
+                 end
+               when 'indoor_detail_state', 'outdoor_natural_detail_state', 'outdoor_man_made_detail_state' then
+                 'describe_object_state'
+               else
+                 'question_done_state'
+             end
   end
 end
