@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get 'training2' => 'training#training2'
   get 'ready' => 'training#ready'
 
-  get 'questions' => 'questions#questions'
+  get 'question' => 'question#question'
 
   get 'show' => 'images#new'
   get 'checkimage' => 'images#checkimage'
@@ -40,8 +40,8 @@ Rails.application.routes.draw do
   #   resources :products
 
 
-  # Go to the next page in the questions. Next page depends on the filled in semantic type of the image and the current page
-  resources :questions do
+  # Go to the next page in the question. Next page depends on the filled in semantic type of the image and the current page
+  resources :question do
     collection do
       get :next_page
     end
