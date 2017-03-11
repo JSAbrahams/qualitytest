@@ -1,12 +1,12 @@
 class QuestionsController < ApplicationController
   def new
     @type = params[:semantic]
-    @state = "init_state"
+    @state = "semantic_recognition_state"
   end
 
   def next_page
     # state pattern would be much better, this is a bit ugly
-    if @state == "init_state"
+    if @state == "semantic_recognition_state" || @state == "finished"
       @state = "distortion_visible_state"
     elsif @state == "distortion_visible_state"
       @state = "semantic_recognition_state"

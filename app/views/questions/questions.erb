@@ -4,7 +4,7 @@
 <%= session[:first] %>-->
 
 <div class="current_question" align="center">
-  <% if @state == "init_state" %>
+  <% if @state == "semanticRecognition" %>
       <%= render partial: "layouts/semanticRecognition" %>
   <% elsif @state == "distortion_visible_state" %>
       <%= render partial: "layouts/distortionVisible" %>
