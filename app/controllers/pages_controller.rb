@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       #randomize images
       session[:images] = session[:images].split(" ").shuffle
       session[:img_num] = '-1';
-
+      session[:question] = NIL
       redirect_to newuser_path
     elsif session[:campaign] == 2 # session[:campaign] = params[:campaign]
       session[:userid] = params[:user].to_s

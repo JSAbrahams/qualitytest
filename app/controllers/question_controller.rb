@@ -1,11 +1,8 @@
 class QuestionController < ApplicationController
-  def new
-    session[:type] = params[:semantic]
-  end
-
   def question
-    session[:state] =
-        case session[:state]
+    session[:type] = params[:semantic]
+    session[:question] =
+        case session[:question]
           when 'distortion_visible' then
             'semantic_recognition'
           when 'semantic_recognition' then
@@ -21,16 +18,17 @@ class QuestionController < ApplicationController
             'describe_object'
           when 'describe_object'
             # question done
-            if TrainingController.is_training
-              TrainingController.set_training(false)
-              render ready_path
+            if session[:training].nil? or session[:training] == true
+              session[:training] = false
+              redirect_to(ready_path)
             else
-              render new_images_path
+              redirect_to(new_images_path)
             end
+            'distortion_visible'
           else
             'distortion_visible'
         end
 
-    @state = session[:state]
+    @question = session[:question]
   end
 end
