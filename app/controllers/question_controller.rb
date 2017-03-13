@@ -4,26 +4,23 @@ class QuestionController < ApplicationController
   end
 
   def question
-    @state = session[:state].nil? ? 'semantic_recognition_state' : session[:state]
-  end
-
-  def next_page
-    @state = case session[:state]
-               when 'distortion visible_state' then
-                 'semantic_recognition_state'
-               when 'semantic_recognition_state' then
-                 case session[:type]
-                   when 'indoor' then
-                     'indoor_detail_state'
-                   when 'outdoor_natural' then
-                     'outdoor_natural_detail_state'
-                   else
-                     'outdoor_man_made_detail_state'
-                 end
-               when 'indoor_detail_state', 'outdoor_natural_detail_state', 'outdoor_man_made_detail_state' then
-                 'describe_object_state'
-               else
-                 'question_done_state'
-             end
+    @state = session[:state]
+    session[:state] =case session[:state]
+                       when 'distortion visible', NIL then
+                         'semantic_recognition'
+                       when 'semantic_recognition' then
+                         case session[:type]
+                           when 'indoor' then
+                             'indoor_detail'
+                           when 'outdoor_natural' then
+                             'outdoor_natural_detail'
+                           else
+                             'outdoor_man_made_detail'
+                         end
+                       when 'indoor_detail', 'outdoor_natural_detail', 'outdoor_man_made_detail' then
+                         'describe_object'
+                       else
+                         'question_done'
+                     end
   end
 end
