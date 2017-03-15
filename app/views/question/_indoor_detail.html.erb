@@ -1,0 +1,18 @@
+<p>Please select the details that best describe the scene in the picture:</p>
+
+<div>
+  <%= radio_button_tag :indoor_details, 'workplace' %>
+  <%= label_tag 'Workplace (e.g. office, laboratory etc.)' %>
+  <br>
+  <%= radio_button_tag :indoor_details, 'shopping' %>
+  <%= label_tag 'Shopping and dining place (e.g. supermarket, restaurant, coffee shop, etc.)' %>
+  <br>
+  <%= radio_button_tag :indoor_details, 'sports' %>
+  <%= label_tag 'Sports and leisure place (e.g. bowling alley, night club, etc.)' %>
+  <br>
+  <%= radio_button_tag :indoor_details, 'cultural' %>
+  <%= label_tag 'Cultural place (e.g. art studio, museum, etc.)' %>
+  <br>
+  <%= radio_button_tag :indoor_details, 'home_hotel' %>
+  <%= label_tag 'Home or hotel (e.g. bathroom, bedroom, kitchen, living room, etc.)' %>
+</div>

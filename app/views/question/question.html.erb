@@ -1,10 +1,10 @@
-<h1>Example : Image Quality</h1>
+<h1><%= session[:training] ? 'Example' : 'Questions' %> : Image Quality</h1>
 <!--<%= session[:test_set] %>
 <%= session[:subtask] %>
 <%= session[:first] %>-->
 
 <div align="center">
-  <%= render partial: "layouts/#{@question}"%>
+  <%= render partial: "question/#{@question}" %>
 </div>
 
 <div class="buttons">

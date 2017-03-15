@@ -1,12 +1,16 @@
 class QuestionController < ApplicationController
+
   def question
-    session[:type] = params[:semantic]
+    puts 'parameters: ', params
+
     session[:question] =
         case session[:question]
           when 'distortion_visible' then
+            'scale_ACR'
+          when 'scale_ACR' then
             'semantic_recognition'
           when 'semantic_recognition' then
-            case session[:type]
+            case params[:semantic]
               when 'indoor' then
                 'indoor_detail'
               when 'outdoor_natural' then
@@ -20,11 +24,10 @@ class QuestionController < ApplicationController
             # question done
             if session[:training].nil? or session[:training] == true
               session[:training] = false
-              redirect_to(ready_path)
+              redirect_to ready_path
             else
-              redirect_to(new_images_path)
+              redirect_to new_image_path
             end
-            'distortion_visible'
           else
             'distortion_visible'
         end

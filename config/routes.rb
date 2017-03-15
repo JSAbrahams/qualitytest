@@ -40,9 +40,6 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Go to the next page in the question. Next page depends on the filled in semantic type of the image and the current page
-  resources :question do
-    get :next_page
-  end
 
   resources :images
 
