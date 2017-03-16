@@ -118,14 +118,14 @@ EOT
   def test_states
     json = generate({1=>2}, nil)
     assert_equal('{"1":2}', json)
-    s = JSON.state.new
+    s = JSON.question.new
     assert s.check_circular?
     assert s[:check_circular?]
     h = { 1=>2 }
     h[3] = h
     assert_raises(JSON::NestingError) {  generate(h) }
     assert_raises(JSON::NestingError) {  generate(h, s) }
-    s = JSON.state.new
+    s = JSON.question.new
     a = [ 1, 2 ]
     a << a
     assert_raises(JSON::NestingError) {  generate(a, s) }
@@ -210,14 +210,14 @@ EOT
     assert_equal 0, JSON::PRETTY_STATE_PROTOTYPE.depth
     assert_raises(JSON::NestingError) { JSON.pretty_generate(ary) }
     assert_equal 0, JSON::PRETTY_STATE_PROTOTYPE.depth
-    s = JSON.state.new
+    s = JSON.question.new
     assert_equal 0, s.depth
     assert_raises(JSON::NestingError) { ary.to_json(s) }
     assert_equal 100, s.depth
   end
 
   def test_buffer_initial_length
-    s = JSON.state.new
+    s = JSON.question.new
     assert_equal 1024, s.buffer_initial_length
     s.buffer_initial_length = 0
     assert_equal 1024, s.buffer_initial_length
@@ -250,14 +250,14 @@ EOT
       :object_nl    => '4',
       :array_nl     => '5'
     }
-    state1 = JSON.state.new
+    state1 = JSON.question.new
     state1.merge(numbered_state)
     assert_equal '1', state1.indent
     assert_equal '2', state1.space
     assert_equal '3', state1.space_before
     assert_equal '4', state1.object_nl
     assert_equal '5', state1.array_nl
-    state2 = JSON.state.new
+    state2 = JSON.question.new
     state2.configure(numbered_state)
     assert_equal '1', state2.indent
     assert_equal '2', state2.space
@@ -267,10 +267,10 @@ EOT
   end
 
   def test_configure_hash_conversion
-    state = JSON.state.new
+    state = JSON.question.new
     state.configure(:indent => '1')
     assert_equal '1', state.indent
-    state = JSON.state.new
+    state = JSON.question.new
     foo = 'foo'
     assert_raise(TypeError) do
       state.configure(foo)
@@ -305,7 +305,7 @@ EOT
   end
 
   def test_hash_likeness_set_symbol
-    state = JSON.state.new
+    state = JSON.question.new
     assert_equal nil, state[:foo]
     assert_equal nil.class, state[:foo].class
     assert_equal nil, state['foo']
@@ -318,7 +318,7 @@ EOT
   end
 
   def test_hash_likeness_set_string
-    state = JSON.state.new
+    state = JSON.question.new
     assert_equal nil, state[:foo]
     assert_equal nil, state['foo']
     state['foo'] = :bar

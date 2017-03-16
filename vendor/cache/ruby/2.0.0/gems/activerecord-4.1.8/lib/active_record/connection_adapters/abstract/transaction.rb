@@ -5,11 +5,11 @@ module ActiveRecord
 
       def initialize(connection)
         @connection = connection
-        @state = TransactionState.new
+        @question = TransactionState.new
       end
 
       def state
-        @state
+        @question
       end
     end
 
@@ -19,27 +19,27 @@ module ActiveRecord
       VALID_STATES = Set.new([:committed, :rolledback, nil])
 
       def initialize(state = nil)
-        @state = state
+        @question = state
         @parent = nil
       end
 
       def finalized?
-        @state
+        @question
       end
 
       def committed?
-        @state == :committed
+        @question == :committed
       end
 
       def rolledback?
-        @state == :rolledback
+        @question == :rolledback
       end
 
       def set_state(state)
         if !VALID_STATES.include?(state)
           raise ArgumentError, "Invalid transaction state: #{state}"
         end
-        @state = state
+        @question = state
       end
     end
 
@@ -125,12 +125,12 @@ module ActiveRecord
         if record.has_transactional_callbacks?
           records << record
         else
-          record.set_transaction_state(@state)
+          record.set_transaction_state(@question)
         end
       end
 
       def rollback_records
-        @state.set_state(:rolledback)
+        @question.set_state(:rolledback)
         records.uniq.each do |record|
           begin
             record.rolledback!(parent.closed?)
@@ -141,7 +141,7 @@ module ActiveRecord
       end
 
       def commit_records
-        @state.set_state(:committed)
+        @question.set_state(:committed)
         records.uniq.each do |record|
           begin
             record.committed!
@@ -198,8 +198,8 @@ module ActiveRecord
       end
 
       def perform_commit
-        @state.set_state(:committed)
-        @state.parent = parent.state
+        @question.set_state(:committed)
+        @question.parent = parent.question
         connection.release_savepoint
         records.each { |r| parent.add_record(r) }
       end

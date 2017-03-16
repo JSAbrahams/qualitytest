@@ -188,7 +188,7 @@ module HTML
   # === Substitution Values
   #
   # You can use substitution with identifiers, class names and element values.
-  # A substitution takes the form of a question mark (<tt>?</tt>) and uses the
+  # A substitution takes the form of a question_page mark (<tt>?</tt>) and uses the
   # next value in the argument list following the CSS expression.
   #
   # The substitution value may be a string or a regular expression. All other
