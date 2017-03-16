@@ -9,6 +9,29 @@
     </div>
 
     <div class="buttons">
-      <%= submit_tag 'Next', class: 'btn btn-large btn-primary' %>
+      <%= submit_tag 'Next', class: 'btn btn-large btn-primary', :disabled => true %>
     </div>
 <% end %>
+
+<script>
+    var $radioButtons = $("input:radio");
+
+    // if no radio buttons
+    if ($radioButtons.size() == 0) {
+        $("input[name='commit']").removeAttr("disabled");
+    }
+
+    $radioButtons.change(function () {
+        var anyRadioButtonHasValue = false;
+
+        $radioButtons.each(function () {
+            if (this.checked) {
+                anyRadioButtonHasValue = true;
+            }
+        });
+
+        if (anyRadioButtonHasValue) {
+            $("input[name='commit']").removeAttr("disabled");
+        }
+    })
+</script>
