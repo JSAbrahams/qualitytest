@@ -1,12 +1,10 @@
 <p>Please select the best category that describes the scene in the picture:</p>
 
-<div id="radio_buttons">
-  <%= radio_button_tag :semantic, 'indoor', :checked => {params[:semantic] => 'indoor'} %>
-  <%= label_tag :semantic, 'Indoor' %>
-  <br>
-  <%= radio_button_tag :semantic, 'outdoor_natural', :checked => {params[:semantic] => 'outdoor_natural'} %>
-  <%= label_tag :semantic, 'Outdoor Natural' %>
-  <br>
-  <%= radio_button_tag :semantic, 'outdoor_man_made', :checked => {params[:semantic] => 'outdoor_man_made'} %>
-  <%= label_tag :semantic, 'Outdoor Man Made' %>
-</div>
+<%= radio_button_tag :semantic, 'indoor' %>
+<%= label_tag :semantic, 'Indoor' %>
+<br>
+<%= radio_button_tag :semantic, 'outdoor_natural' %>
+<%= label_tag :semantic, 'Outdoor Natural' %>
+<br>
+<%= radio_button_tag :semantic, 'outdoor_man_made' %>
+<%= label_tag :semantic, 'Outdoor Man Made' %>

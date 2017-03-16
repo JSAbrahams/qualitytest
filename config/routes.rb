@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'ready' => 'training#ready'
 
   get 'question' => 'question#question'
+  post 'question' => 'question#question'
 
   get 'show' => 'images#new'
   get 'checkimage' => 'images#checkimage'

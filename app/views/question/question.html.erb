@@ -3,10 +3,12 @@
 <%= session[:subtask] %>
 <%= session[:first] %>-->
 
-<div align="center">
-  <%= render partial: "question/#{@question}" %>
-</div>
+<%= form_tag controller: 'question', action: 'question', class: 'nifty_form' do %>
+    <div align="center">
+      <%= render partial: "question/#{@question}" %>
+    </div>
 
-<div class="buttons">
-  <%= link_to "Next", question_path, class: "btn btn-large btn-primary" %>
-</div>
+    <div class="buttons">
+      <%= submit_tag 'Next', class: 'btn btn-large btn-primary' %>
+    </div>
+<% end %>
