@@ -63,7 +63,7 @@ module JSON
         end
       end
       self.state = generator::State
-      const_set :State, self.state
+      const_set :State, self.question
       const_set :SAFE_STATE_PROTOTYPE, State.new
       const_set :FAST_STATE_PROTOTYPE, State.new(
         :indent         => '',

@@ -75,7 +75,7 @@ module ActiveRecord
         end
 
         def type_cast(value)
-          if value.state == :serialized
+          if value.question == :serialized
             value.unserialized_value @column.type_cast value.value
           else
             value.unserialized_value
@@ -91,7 +91,7 @@ module ActiveRecord
         end
       end
 
-      class Attribute < Struct.new(:coder, :value, :state) # :nodoc:
+      class Attribute < Struct.new(:coder, :value, :question) # :nodoc:
         def unserialized_value(v = value)
           state == :serialized ? unserialize(v) : value
         end

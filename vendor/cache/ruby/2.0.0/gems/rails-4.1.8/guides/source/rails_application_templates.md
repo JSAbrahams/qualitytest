@@ -215,7 +215,7 @@ These methods let you ask questions from templates and decide the flow based on 
 
 ```ruby
 rake("rails:freeze:gems") if yes?("Freeze rails gems?")
-# no?(question) acts just the opposite.
+question_page
 ```
 
 ### git(:command)

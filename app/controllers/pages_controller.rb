@@ -1,35 +1,43 @@
 class PagesController < ApplicationController
   def index
-      @title = "Home"
-      if params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
-        session[:campaign] = 2
-        session[:userid] = rand(1..1000)
-        session[:images] = CampaignSet.find(session[:campaign]).images
-        session[:scale] = CampaignSet.find(session[:campaign]).scale
-        redirect_to newuser_path
-      elsif 
-        session[:campaign] = 2  # session[:campaign] = params[:campaign] 
-        session[:userid] = params[:user].to_s
-        @finalstring = params[:mw] += params[:user] += "8c25a8f5e42c00a6f814f45ac764084f4b20a5c476be47ac2a674b82d0ba541f"
-        session[:vcode] = Digest::SHA2.hexdigest(@finalstring)
-        session[:vcode] = "mw-" + session[:vcode].to_s
-        session[:images] = CampaignSet.find(session[:campaign]).images
-        session[:scale] = CampaignSet.find(session[:campaign]).scale
-        session[:microworkers] = '1'
-        session[:content] = nil
-      end
+    @title = "Home"
+    if params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
+      session[:campaign] = 2
+      session[:userid] = rand(1..1000)
+      session[:images] = CampaignSet.find(session[:campaign]).images
+      session[:scale] = CampaignSet.find(session[:campaign]).scale
+      #randomize images
+      session[:images] = session[:images].split(" ").shuffle
+      session[:img_num] = '-1';
+      session[:question] = NIL
+      params[:semantic] = NIL
+      redirect_to newuser_path
+    elsif session[:campaign] == 2 # session[:campaign] = params[:campaign]
+      session[:userid] = params[:user].to_s
+      @finalstring = params[:mw] += params[:user] += "8c25a8f5e42c00a6f814f45ac764084f4b20a5c476be47ac2a674b82d0ba541f"
+      session[:vcode] = Digest::SHA2.hexdigest(@finalstring)
+      session[:vcode] = "mw-" + session[:vcode].to_s
+      session[:images] = CampaignSet.find(session[:campaign]).images
+      session[:scale] = CampaignSet.find(session[:campaign]).scale
+      #randomize images
+      session[:images] = session[:images].split(" ").shuffle
+      session[:img_num] = '-1';
+
+      session[:microworkers] = '1'
+      session[:content] = nil
+    end
   end
 
   def intro
-      @title = "Instructions"
+    @title = "Instructions"
   end
 
   def help
-      @title = "Help"
+    @title = "Help"
   end
 
   def about
-      @title = "About"
+    @title = "About"
   end
 
   def contact
@@ -54,7 +62,7 @@ class PagesController < ApplicationController
     elsif session[:training] == 'start'
       session[:training] = 'finish'
     elsif session[:training] == 'finish'
-        redirect_to ready_path
+      redirect_to ready_path
     end
   end
 
@@ -66,15 +74,12 @@ class PagesController < ApplicationController
     @title = "Training"
   end
 
-   def trainend
+  def trainend
     @title = "Training"
   end
 
   def ready
     @title = "Begin Test"
-     #randomize images 
-    session[:images] = session[:images].split(" ").shuffle
-    session[:img_num] = '0';
   end
 
   def totraining
