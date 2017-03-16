@@ -8,25 +8,31 @@ Rails.application.routes.draw do
   get 'pages/index/:user/:mw' => 'pages#index', user: :user, mw: :mw
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
   post 'crowdsourceuser' => 'users#crowdsourceuser'
   get 'newuser' => 'users#new'
   post 'newuser' => 'users#create'
-  get 'about' => 'pages#about'
-  get 'intro' => 'pages#intro'
-  get 'totraining' => 'pages#totraining'
-  get 'training' => 'pages#training'
-  get 'trainreco' => 'pages#trainreco'
-  get 'trainaest' => "pages#trainaest"
-  get 'trainend' => "pages#trainend"
-  get 'ready' => 'pages#ready'
-  get 'show' => 'scores#new'
-  get 'checkimage' => 'scores#checkimage'
   post 'update' => 'users#update'
   get 'content' => 'users#content'
   get 'contentanswer' => 'users#contentanswer'
-  get 'contentcheck' => 'scores#contentcheck'
+
+  get 'about' => 'pages#about'
+  get 'intro' => 'pages#intro'
+  get 'totraining' => 'pages#totraining'
+  get 'trainreco' => 'pages#trainreco'
   get 'end' => 'pages#end'
   get 'endwrong' => 'pages#endwrong'
+
+  get 'training' => 'training#training'
+  get 'training2' => 'training#training2'
+  get 'ready' => 'training#ready'
+
+  get 'question' => 'question#question'
+  post 'question' => 'question#question'
+
+  get 'show' => 'images#new'
+  get 'checkimage' => 'images#checkimage'
+  get 'contentcheck' => 'images#contentcheck'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
@@ -34,7 +40,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :scores
+  # Go to the next page in the question. Next page depends on the filled in semantic type of the image and the current page
+
+  resources :images
 
   resources :users
 

@@ -39,7 +39,7 @@ class Thor
       # If asked to limit the correct responses, you can pass in an
       # array of acceptable answers.  If one of those is not supplied,
       # they will be shown a message stating that one of those answers
-      # must be given and re-asked the question.
+      # must be given and re-asked the question_page.
       #
       # If asking for sensitive information, the :echo option can be set
       # to false to mask user input from $stdin.
@@ -104,14 +104,14 @@ class Thor
         stdout.flush
       end
 
-      # Make a question the to user and returns true if the user replies "y" or
+      # Make a question_page the to user and returns true if the user replies "y" or
       # "yes".
       #
       def yes?(statement, color = nil)
         !!(ask(statement, color, :add_to_history => false) =~ is?(:yes))
       end
 
-      # Make a question the to user and returns true if the user replies "n" or
+      # Make a question_page the to user and returns true if the user replies "n" or
       # "no".
       #
       def no?(statement, color = nil)

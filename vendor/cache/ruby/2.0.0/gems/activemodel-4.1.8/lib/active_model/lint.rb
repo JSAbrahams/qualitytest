@@ -88,7 +88,7 @@ module ActiveModel
       # == \Errors Testing
       #
       # Returns an object that implements [](attribute) defined which returns an
-      # Array of Strings that are the errors for the attribute in question.
+      # Array of Strings that are the errors for the attribute in question_page.
       # If localization is used, the Strings should be localized for the current
       # locale. If no error is present, this method should return an empty Array.
       def test_errors_aref

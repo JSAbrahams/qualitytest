@@ -1,0 +1,17 @@
+<h1>Example : Image Quality</h1>
+<!--<%= session[:test_set] %>
+<%= session[:subtask] %>
+<%= session[:first] %>-->
+
+<p>
+  You will now be shown a practice test of the whole procedure of the task. You first need to click on the play button
+  in the middle of the image. Afterwards, the test image will appear. The image will appear for less than 1 second, so
+  please pay attention to the screen! You will only be shown the image once. Then, you will be asked to answer some
+  questions about the image.
+</p>
+
+<div id="wait-text"></div>
+<div class="buttons">
+  <%= link_to "Next", show_path, class: "btn btn-large btn-primary", :id => "start-button" %>
+</div>
+
