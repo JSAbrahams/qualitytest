@@ -1,7 +1,11 @@
 class ImagesController < ApplicationController
 
   def new
-    session[:view_time] = 40
+    # depending on the campaign id, selects the next condition in the squences, which links to a different table
+    # which has a presentation time, and an image id, which links to an image path (unique for each image +
+    # distortion level)
+
+    session[:view_time] = 40 # hardcoded for now, should be retrieved from database
 
     if session[:img_num].to_i < (session[:images].length-1)
       if (session[:img_num]).to_i == 5 || (session[:img_num]).to_i == 19

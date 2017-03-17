@@ -4,13 +4,13 @@ class QuestionController < ApplicationController
     session[:question] =
         case session[:question]
           when 'distortion_visible' then
-            score_in_database 'distortion_visible', params[:distortion_visible]
+            score_in_database 'distortion', params[:distortion_visible]
             'scale_ACR'
           when 'scale_ACR' then
-            score_in_database 'scale_ACR', params[:scale_ACR]
+            score_in_database 'quality', params[:scale_ACR]
             'semantic_recognition'
           when 'semantic_recognition' then
-            score_in_database 'semantic_recognition', params[:semantic_recognition]
+            score_in_database 'semantic', params[:semantic_recognition]
             case params[:semantic_recognition]
               when 'indoor' then
                 'indoor_detail'
@@ -30,7 +30,7 @@ class QuestionController < ApplicationController
             'describe_object'
           when 'describe_object'
             # question done
-            score_in_database 'describe_object', params[:describe_object]
+            score_in_database 'object', params[:describe_object]
             if session[:training].nil? or session[:training] == true
               session[:training] = false
               redirect_to ready_path
