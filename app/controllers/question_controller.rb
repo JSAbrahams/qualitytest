@@ -4,14 +4,14 @@ class QuestionController < ApplicationController
     session[:question] =
         case session[:question]
           when 'distortion_visible' then
-            score_in_database 'distortion_visible', params[:distortion_visible]
+            score_in_database 'distortion', params[:distortion_visible]
             'scale_ACR'
           when 'scale_ACR' then
-            score_in_database 'scale_ACR', params[:scale_ACR]
+            score_in_database 'quality', params[:scale_ACR]
             'semantic_recognition'
           when 'semantic_recognition' then
-            score_in_database 'semantic_recognition', params[:semantic_recognition]
-            case params[:semantic]
+            score_in_database 'semantic', params[:semantic_recognition]
+            case params[:semantic_recognition]
               when 'indoor' then
                 'indoor_detail'
               when 'outdoor_natural' then
@@ -30,7 +30,7 @@ class QuestionController < ApplicationController
             'describe_object'
           when 'describe_object'
             # question done
-            score_in_database 'describe_object', params[:describe_object]
+            score_in_database 'object', params[:describe_object]
             if session[:training].nil? or session[:training] == true
               session[:training] = false
               redirect_to ready_path
@@ -54,8 +54,14 @@ class QuestionController < ApplicationController
       return
     end
 
-    puts 'Storing: (type: [' + type.to_s + '] value: [' + value.to_s + '] image_no: [' +
-             session[:img_num].to_s + '] user_id: [' + session[:userid].to_s + '])'
+    @type = type
+    @value = value
+    @image_num = session[:img_num]
+    @user_id = session[:userid]
+    @view_time = session[:view_time]
+
+    puts 'Storing: (type: [' + @type.to_s + '] value: [' + @value.to_s + '] image_no: [' +
+             @image_num.to_s + '] view time: [' + @view_time.to_s + '] user_id: [' + @user_id.to_s + '])'
 
     # code here
 

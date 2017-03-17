@@ -9,6 +9,8 @@ class PagesController < ApplicationController
       #randomize images
       session[:images] = session[:images].split(" ").shuffle
       session[:img_num] = '-1';
+
+      session[:view_time] = NIL
       session[:question] = NIL
       session[:training] = true
       params[:semantic] = NIL
