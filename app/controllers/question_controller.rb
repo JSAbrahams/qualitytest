@@ -54,8 +54,14 @@ class QuestionController < ApplicationController
       return
     end
 
-    puts 'Storing: (type: [' + type.to_s + '] value: [' + value.to_s + '] image_no: [' +
-             session[:img_num].to_s + '] user_id: [' + session[:userid].to_s + '])'
+    @type = type
+    @value = value
+    @image_num = session[:img_num]
+    @user_id = session[:userid]
+    @view_time = session[:view_time]
+
+    puts 'Storing: (type: [' + @type.to_s + '] value: [' + @value.to_s + '] image_no: [' +
+             @image_num.to_s + '] view time: [' + @view_time + '] user_id: [' + @user_id.to_s + '])'
 
     # code here
 
