@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
 
   def new
+    session[:view_time] = 40
+
     if session[:img_num].to_i < (session[:images].length-1)
       if (session[:img_num]).to_i == 5 || (session[:img_num]).to_i == 19
         redirect_to content_path

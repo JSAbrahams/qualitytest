@@ -11,7 +11,7 @@ class QuestionController < ApplicationController
             'semantic_recognition'
           when 'semantic_recognition' then
             score_in_database 'semantic_recognition', params[:semantic_recognition]
-            case params[:semantic]
+            case params[:semantic_recognition]
               when 'indoor' then
                 'indoor_detail'
               when 'outdoor_natural' then
@@ -61,7 +61,7 @@ class QuestionController < ApplicationController
     @view_time = session[:view_time]
 
     puts 'Storing: (type: [' + @type.to_s + '] value: [' + @value.to_s + '] image_no: [' +
-             @image_num.to_s + '] view time: [' + @view_time + '] user_id: [' + @user_id.to_s + '])'
+             @image_num.to_s + '] view time: [' + @view_time.to_s + '] user_id: [' + @user_id.to_s + '])'
 
     # code here
 

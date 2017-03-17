@@ -1,3 +1,14 @@
+<div id="image_container" onClick="show()" style="background-color: black;">
+  <div id="test_image" style="visibility: hidden;">
+    <%= link_to image_tag(@img.filepath), '#' %>
+  </div>
+</div>
+
+<div class="buttons">
+  <%= button_to 'Next', question_path, class: 'btn btn-large btn-primary',
+              :name => 'to_questions', :disabled => true %>
+</div>
+
 <script>
     var showTime = 40;
     var seen = false;
@@ -12,15 +23,6 @@
 
     function hide() {
         document.getElementById("test_image").style.visibility = "hidden";
+        $("input[name='to_questions']").removeAttr("disabled");
     }
 </script>
-
-<div id="image_container" onClick="show()" style="background-color: black;">
-  <div id="test_image" style="visibility: hidden;">
-    <%= link_to image_tag(@img.filepath), '#' %>
-  </div>
-</div>
-
-<div class="buttons">
-  <%= link_to "Next", question_path, class: "btn btn-large btn-primary" %>
-</div>
