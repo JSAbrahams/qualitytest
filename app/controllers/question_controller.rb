@@ -1,8 +1,6 @@
 class QuestionController < ApplicationController
 
   def question
-    puts 'parameters: ', params
-
     session[:question] =
         case session[:question]
           when 'distortion_visible' then
@@ -43,6 +41,7 @@ class QuestionController < ApplicationController
             'distortion_visible'
         end
 
+    puts 'User user_id: [' + session[:userid].to_s + '] is now viewing question [' + session[:question].to_s + ']'
     @question = session[:question]
   end
 
@@ -51,11 +50,15 @@ class QuestionController < ApplicationController
   # Only store score in database if not training.
   def score_in_database (type, value)
     if session[:training].nil? or session[:training] == true
-      puts 'in training, not storing values in database'
+      puts 'In training, not storing values in database'
       return
     end
 
-    puts 'stored type ' + type.to_s + ' with value ' + value.to_s + ' for image ' +
-             session[:img_num].to_s + ' for user ' + session[:userid].to_s
+    puts 'Storing: (type: [' + type.to_s + '] value: [' + value.to_s + '] image_no: [' +
+             session[:img_num].to_s + '] user_id: [' + session[:userid].to_s + '])'
+
+    # code here
+
+    puts 'Done'
   end
 end
