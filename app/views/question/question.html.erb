@@ -1,4 +1,4 @@
-<h1><%= session[:training] ? 'Example' : 'Questions' %> : Image Quality</h1>
+<h1><%= (session[:training] || session[:training].nil?) ? 'Example' : 'Questions' %> : Image Quality</h1>
 <!--<%= session[:test_set] %>
 <%= session[:subtask] %>
 <%= session[:first] %>-->
