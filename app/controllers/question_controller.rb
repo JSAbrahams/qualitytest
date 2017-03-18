@@ -1,16 +1,36 @@
 class QuestionController < ApplicationController
 
   def question
+    @user_id = session[:userid]
+    @image_id = session[:image_ids][session[:img_num].to_i].to_i
+    @view_time = session[:view_time].to_i
+
+    puts 'view_time: ' +  @view_time.to_i.to_s
+
     session[:question] =
         case session[:question]
           when 'distortion_visible' then
-            score_in_database 'distortion', params[:distortion_visible]
+            if !session[:training] && !session[:training].nil?
+              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
+              score.distortion = params[:distortion_visible].to_s == 'yes' ? 1 : 0
+              score.save
+            end
             'scale_ACR'
+
           when 'scale_ACR' then
-            score_in_database 'quality', params[:scale_ACR]
+            if !session[:training] && !session[:training].nil?
+              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
+              score.quality = params[:scale_ACR]
+              score.save
+            end
             'semantic_recognition'
+
           when 'semantic_recognition' then
-            score_in_database 'semantic', params[:semantic_recognition]
+            if !session[:training] && !session[:training].nil?
+              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
+              score.semantic = params[:semantic_recognition]
+              score.save
+            end
             case params[:semantic_recognition]
               when 'indoor' then
                 'indoor_detail'
@@ -19,25 +39,50 @@ class QuestionController < ApplicationController
               else
                 'outdoor_man_made_detail'
             end
+
           when 'indoor_detail' then
-            score_in_database 'detail', params[:indoor_detail]
+            if !session[:training] && !session[:training].nil?
+              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
+              score.detail = params[:indoor_detail]
+              score.save
+            end
             'describe_object'
+
           when 'outdoor_natural_detail' then
-            score_in_database 'detail', params[:outdoor_natural_detail]
+            if !session[:training] && !session[:training].nil?
+              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
+              score.detail = params[:outdoor_natural_detail]
+              score.save
+            end
             'describe_object'
+
           when 'outdoor_man_made_detail' then
-            score_in_database 'detail', params[:outdoor_man_made_detail]
+            if !session[:training] && !session[:training].nil?
+              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
+              score.detail = params[:outdoor_man_made_detail]
+              score.save
+            end
             'describe_object'
+
           when 'describe_object'
-            # question done
-            score_in_database 'object', params[:describe_object]
+            if !session[:training] && !session[:training].nil?
+              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
+              score.description = params[:describe_object]
+              score.save
+            end
             if session[:training].nil? or session[:training] == true
               session[:training] = false
               redirect_to ready_path
             else
               redirect_to new_image_path
             end
+
           else
+            if !session[:training] && !session[:training].nil?
+              Score.create user_id: @user_id, img_id: @image_id, viewtime: @view_time
+            end
+            puts 'created score: ' + session[:score].to_s
+
             'distortion_visible'
         end
 
@@ -46,25 +91,4 @@ class QuestionController < ApplicationController
   end
 
   private
-
-  # Only store score in database if not training.
-  def score_in_database (type, value)
-    if session[:training].nil? or session[:training] == true
-      puts 'In training, not storing values in database'
-      return
-    end
-
-    @type = type
-    @value = value
-    @image_num = session[:img_num]
-    @user_id = session[:userid]
-    @view_time = session[:view_time]
-
-    puts 'Storing: (type: [' + @type.to_s + '] value: [' + @value.to_s + '] image_no: [' +
-             @image_num.to_s + '] view time: [' + @view_time.to_s + '] user_id: [' + @user_id.to_s + '])'
-
-    # code here
-
-    puts 'Done'
-  end
 end

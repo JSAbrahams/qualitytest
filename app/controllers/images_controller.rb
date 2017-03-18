@@ -21,13 +21,12 @@ class ImagesController < ApplicationController
     @score = Score.new
     #set image to be shown
     @img = Image.find(session[:image_ids][@img_num].to_i)
-    session[:view_time] = Viewtime.find(session[:view_time_ids][@img_num].to_i)
+    session[:view_time] = Viewtime.find(session[:view_time_ids][@img_num].to_i).viewtime
 
-    puts 'User user_id: [' + session[:user_id].to_s + ']'
-    puts 'Viewing image_id: [' + session[:image_ids][@img_num].to_s+ '], image: [' +
-             Image.find(session[:image_ids][@img_num].to_i).to_s + ']'
+    puts 'User user_id: [' + session[:userid].to_s + ']'
+    puts 'Viewing image_id: [' + session[:image_ids][@img_num].to_s+ '], image: [' +@img.filepath.to_s + ']'
     puts 'With viewtime_id: [' + session[:view_time_ids][@img_num].to_s+ '], view time: [' +
-             Viewtime.find(session[:view_time_ids][@img_num].to_i).to_s + ']'
+             session[:view_time].to_s + ']'
   end
 
   private

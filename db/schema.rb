@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.integer "viewtime",    null: false
     t.integer "distortion"
     t.integer "quality"
-    t.integer "semantic"
-    t.integer "detail"
-    t.integer "description"
+    t.text    "semantic"
+    t.text    "detail"
+    t.text    "description"
   end
 
 # Could not dump table "users" because of following NoMethodError
