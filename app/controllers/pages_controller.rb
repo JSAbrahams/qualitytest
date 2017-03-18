@@ -4,8 +4,7 @@ class PagesController < ApplicationController
     if params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
       session[:campaign] = 2
       session[:userid] = rand(1..1000)
-      session[:images] = CampaignSet.find(session[:campaign]).images
-      session[:scale] = CampaignSet.find(session[:campaign]).scale
+      session[:images] = CampaignSet.find(session[:campaign]).image_viewtimes_id
       #randomize images
       session[:images] = session[:images].split(" ").shuffle
       session[:img_num] = '-1';
@@ -14,6 +13,7 @@ class PagesController < ApplicationController
       session[:question] = NIL
       session[:training] = true
       params[:semantic] = NIL
+
       redirect_to newuser_path
     elsif session[:campaign] == 2 # session[:campaign] = params[:campaign]
       session[:userid] = params[:user].to_s

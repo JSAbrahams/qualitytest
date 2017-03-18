@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   def new
-    # depending on the campaign id, selects the next condition in the squences, which links to a different table
+    # depending on the campaign id, selects the next condition in the sequences, which links to a different table
     # which has a presentation time, and an image id, which links to an image path (unique for each image +
     # distortion level)
 

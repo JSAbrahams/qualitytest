@@ -52,6 +52,10 @@ class UsersController < ApplicationController
     @user.content2=""
     @user.start_time = Time.now.strftime("%I:%M:%S %z")
     @user.save
+
+    puts 'At ' + @user.start_time.to_s + 'User user_id: [' + session[:userid] + '] gets Campaign campaign_id: [' +
+             session[:campaign] + ']'
+
     redirect_to intro_path
   end
 
