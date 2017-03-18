@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def index
     @title = "Home"
     if params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
-      session[:campaign] = 1
+      session[:campaign] = rand(1..33)
       session[:userid] = rand(1..1000)
       session[:image_viewtime_ids] = CampaignSet.find(session[:campaign]).image_viewtimes_id
 
@@ -21,9 +21,10 @@ class PagesController < ApplicationController
         session[:view_time_ids].push @image_viewtime.viewtime_id
       }
 
-      puts 'User user_id: [' + session[:userid].to_s + '] gets Campaign: [' + @image_viewtimes.to_s + ']'
-      puts 'Image ids: [' + session[:image_ids].to_s + '] (from table \'images\')'
-      puts 'Presentation time ids: [' + session[:view_time_ids].to_s + '] (from table \'viewtimes\')'
+      puts 'User user_id: ' + session[:userid].to_s
+      puts 'Campaign : ' + session[:campaign].to_s + ' : ' + @image_viewtimes.to_s
+      puts 'Image ids: ' + session[:image_ids].to_s
+      puts 'Presentation time ids: [' + session[:view_time_ids].to_s
 
       redirect_to newuser_path
     elsif session[:campaign] == 2 # session[:campaign] = params[:campaign]
