@@ -4,12 +4,13 @@ class ImagesController < ApplicationController
     # depending on the campaign id, selects the next condition in the sequences, which links to a different table
     # which has a presentation time, and an image id, which links to an image path (unique for each image +
     # distortion level)
+    @img_num = session[:img_num].to_i
 
-    if session[:img_num].to_i < (session[:image_ids].length-1)
-      if (session[:img_num]).to_i == 5 || (session[:img_num]).to_i == 19
+    if @img_num < (session[:image_ids].length-1)
+      if @img_num == 5 || @img_num == 19
         redirect_to content_path
       else
-        session[:img_num] = session[:img_num].to_i + 1 #increment image id
+        session[:img_num] = @img_num + 1 #increment image id
       end
       #redirect_to show_path
     else
@@ -19,8 +20,14 @@ class ImagesController < ApplicationController
     #if session[:img_num].to_i < session[:images].length
     @score = Score.new
     #set image to be shown
-    @img = Image.find((session[:image_ids][(session[:img_num].to_i)].to_i))
-    session[:view_time] = ViewTime.find(session[:view_time_ids][(session[:img_num].to_i)].to_i)
+    @img = Image.find(session[:image_ids][@img_num].to_i)
+    session[:view_time] = ViewTime.find(session[:view_time_ids][@img_num].to_i)
+
+    puts 'User user_id: [' + session[:user_id] + ']'
+    puts 'Viewing image_id: [' + session[:image_ids][@img_num].to_i + '] + image: [' +
+             Image.find(session[:image_ids][@img_num].to_i).to_s + ']'
+    puts 'Viewtime_id: [' + session[:view_time_ids][@img_num].to_i + '] viewtime: [' +
+             ViewTime.find(session[:view_time_ids][@img_num].to_i).to_s + ']'
   end
 
   private

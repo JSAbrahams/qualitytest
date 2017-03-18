@@ -11,23 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627133300) do
+ActiveRecord::Schema.define(version: 20170318152106) do
 
   create_table "campaign_sets", force: true do |t|
-    t.string "images"
-    t.integer "scale"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "image_viewtimes_id"
+  end
+
+  create_table "image_viewtimes", force: true do |t|
+    t.integer "image_id",    null: false
+    t.integer "viewtime_id", null: false
   end
 
   create_table "images", force: true do |t|
-    t.decimal "recognizability"
-    t.string "user_id"
-    t.string "img_id"
-    t.string "scale"
-    t.integer "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text "filepath"
+  end
+
+  create_table "scores", force: true do |t|
+    t.integer "user_id",     null: false
+    t.integer "img_id",      null: false
+    t.integer "viewtime",    null: false
+    t.integer "distortion"
+    t.integer "quality"
+    t.integer "semantic"
+    t.integer "detail"
+    t.integer "description"
+  end
+
+  create_table "viewtimes", force: true do |t|
+    t.integer "viewtime", null: false
   end
 
 end
