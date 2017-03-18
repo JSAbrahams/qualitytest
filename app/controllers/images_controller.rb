@@ -5,9 +5,7 @@ class ImagesController < ApplicationController
     # which has a presentation time, and an image id, which links to an image path (unique for each image +
     # distortion level)
 
-    session[:view_time] = 40 # hardcoded for now, should be retrieved from database
-
-    if session[:img_num].to_i < (session[:images].length-1)
+    if session[:img_num].to_i < (session[:image_ids].length-1)
       if (session[:img_num]).to_i == 5 || (session[:img_num]).to_i == 19
         redirect_to content_path
       else
@@ -21,7 +19,8 @@ class ImagesController < ApplicationController
     #if session[:img_num].to_i < session[:images].length
     @score = Score.new
     #set image to be shown
-    @img = Image.find((session[:images][(session[:img_num].to_i)].to_i))
+    @img = Image.find((session[:image_ids][(session[:img_num].to_i)].to_i))
+    session[:view_time] = ViewTime.find(session[:view_time_ids][(session[:img_num].to_i)].to_i)
   end
 
   private
