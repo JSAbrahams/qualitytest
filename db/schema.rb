@@ -37,8 +37,13 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.integer "description"
   end
 
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
   create_table "viewtimes", force: true do |t|
     t.integer "viewtime", null: false
   end
+
+  add_index "viewtimes", ["id", "viewtime"], name: "sqlite_autoindex_viewtimes_1", unique: true
 
 end
