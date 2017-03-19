@@ -2,8 +2,12 @@ class PagesController < ApplicationController
   def index
     @title = "Home"
     if params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
-      session[:campaign] = rand(1..33)
-      session[:userid] = rand(1..1000)
+      session[:campaign] = CampaignSet.order(:views).first.id
+      campaign = CampaignSet.find_by(id: session[:campaign])
+      campaign.started = campaign.started + 1
+      campaign.save
+
+      session[:userid] = User.count + 1
       session[:image_viewtime_ids] = CampaignSet.find(session[:campaign]).image_viewtimes_id
 
       session[:question] = NIL
@@ -59,6 +63,10 @@ class PagesController < ApplicationController
   end
 
   def end
+    campaign = CampaignSet.find_by(id: session[:campaign])
+    campaign.views = campaign.views + 1
+    campaign.save
+
     session[:userid] = nil
     session[:campaign] = nil
     session[:images] = nil

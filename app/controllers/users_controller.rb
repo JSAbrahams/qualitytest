@@ -28,14 +28,14 @@ class UsersController < ApplicationController
 
   def update
     if session[:content] == 1
-      @user = User.find_by!(name: session[:userid])
+      @user = User.find_by(id: session[:userid])
       @user.content1 = params[:answer]
       @user.update_attribute(:content1, @user.content1)
       session[:content] = 2
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     else
-      @user = User.find_by!(name: session[:userid])
+      @user = User.find_by(id: session[:userid])
       @user.content2 = params[:answer]
       @user.update_attribute(:content2, @user.content2)
       session[:content] = nil

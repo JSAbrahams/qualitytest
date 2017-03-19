@@ -14,7 +14,9 @@
 ActiveRecord::Schema.define(version: 20170318152106) do
 
   create_table "campaign_sets", force: true do |t|
-    t.string "image_viewtimes_id"
+    t.string  "image_viewtimes_id"
+    t.integer "views"
+    t.integer "started"
   end
 
   create_table "image_viewtimes", force: true do |t|
@@ -37,8 +39,15 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.text    "description"
   end
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.integer  "campaign_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "gender"
+    t.string   "age"
+    t.datetime "start_time"
+    t.datetime "end_time"
+  end
 
   create_table "viewtimes", force: true do |t|
     t.integer "viewtime", null: false
