@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     session[:userid] = User.count + 1
     session[:image_viewtime_ids] = CampaignSet.find(session[:campaign]).image_viewtimes_id
 
+    session[:validation] = 1
     session[:question] = NIL
     session[:training] = true
     params[:semantic] = NIL

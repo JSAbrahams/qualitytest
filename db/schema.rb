@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.string   "age"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.integer  "validation_1"
+    t.integer  "validation_2"
   end
 
   create_table "viewtimes", force: true do |t|

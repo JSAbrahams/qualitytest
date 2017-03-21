@@ -9,12 +9,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: user_params.fetch(:id))
-    if @user.nil?
-      @user = User.new(user_params)
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to intro_path
+    else
+      render 'new'
     end
-
-    redirect_to intro_path
   end
 
   def content
@@ -27,18 +27,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    if session[:content] == 1
-      @user = User.find_by(id: session[:userid])
-      @user.content1 = params[:answer]
-      @user.update_attribute(:content1, @user.content1)
-      session[:content] = 2
+    if session[:validation] == 1
+      user = User.find_by(id: session[:userid])
+      user.validation_1 = params[:answer] == :zebras ? 1 : 0
+      user.save
+
+      session[:validation] = 2
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     else
-      @user = User.find_by(id: session[:userid])
-      @user.content2 = params[:answer]
-      @user.update_attribute(:content2, @user.content2)
-      session[:content] = nil
+      user = User.find_by(id: session[:userid])
+      user.validation_2 = params[:answer] == :car ? 1 : 0
+      user.save
+
+      session[:validation] = nil
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     end
