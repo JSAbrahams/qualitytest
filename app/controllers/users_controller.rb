@@ -9,12 +9,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to intro_path
-    else
-      render 'new'
+    @user = User.find_by(id: user_params.fetch(:id))
+    if @user.nil?
+      @user = User.new(user_params)
     end
+
+    redirect_to intro_path
   end
 
   def content
