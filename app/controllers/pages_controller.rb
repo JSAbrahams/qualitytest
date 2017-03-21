@@ -52,7 +52,9 @@ class PagesController < ApplicationController
     campaign.views = campaign.views + 1
     campaign.save
 
-    @user.start_time = Time.now.strftime("%I:%M:%S %z")
+    user = User.find_by(id: session[:userid])
+    user.end_time = Time.now.strftime("%I:%M:%S %z")
+    user.save
 
     session[:userid] = nil
     session[:campaign] = nil
