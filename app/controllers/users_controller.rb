@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def update
     if session[:validation] == 1
       user = User.find_by(id: session[:userid])
-      user.validation_1 = params[:answer] == :zebras ? 1 : 0
+      user.validation_1 = params[:answer] == 'zebras' ? 1 : 0
       user.save
 
       session[:validation] = 2
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       redirect_to show_path
     else
       user = User.find_by(id: session[:userid])
-      user.validation_2 = params[:answer] == :car ? 1 : 0
+      user.validation_2 = params[:answer] == 'car' ? 1 : 0
       user.save
 
       session[:validation] = nil
