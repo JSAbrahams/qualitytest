@@ -1,16 +1,24 @@
 <p>Please select the details that best describe the scene in the picture:</p>
 
-<%= radio_button_tag :indoor_detail, 'workplace' %>
-<%= label_tag 'Workplace (e.g. office, laboratory etc.)' %>
-<br>
-<%= radio_button_tag :indoor_detail, 'shopping_dining' %>
-<%= label_tag 'Shopping and dining place (e.g. supermarket, restaurant, coffee shop, etc.)' %>
-<br>
-<%= radio_button_tag :indoor_detail, 'sports_leisure' %>
-<%= label_tag 'Sports and leisure place (e.g. bowling alley, night club, etc.)' %>
-<br>
-<%= radio_button_tag :indoor_detail, 'cultural' %>
-<%= label_tag 'Cultural place (e.g. art studio, museum, etc.)' %>
-<br>
-<%= radio_button_tag :indoor_detail, 'home/hotel' %>
-<%= label_tag 'Home or hotel (e.g. bathroom, bedroom, kitchen, living room, etc.)' %>
+<table>
+  <tr>
+    <td><%= radio_button_tag :indoor_detail, 'workplace' %></td>
+    <td><%= label_tag 'Workplace (e.g. office, laboratory etc.)' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :indoor_detail, 'shopping_dining' %></td>
+    <td><%= label_tag 'Shopping and dining place (e.g. supermarket, restaurant, coffee shop, etc.)' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :indoor_detail, 'sports_leisure' %></td>
+    <td><%= label_tag 'Sports and leisure place (e.g. bowling alley, night club, etc.)' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :indoor_detail, 'cultural' %></td>
+    <td><%= label_tag 'Cultural place (e.g. art studio, museum, etc.)' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :indoor_detail, 'home/hotel' %></td>
+    <td><%= label_tag 'Home or hotel (e.g. bathroom, bedroom, kitchen, living room, etc.)' %></td>
+  </tr>
+</table>

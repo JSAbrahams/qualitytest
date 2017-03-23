@@ -1,7 +1,12 @@
 <p>Did you see any distortion in this image?</p>
 
-<%= radio_button_tag :distortion_visible, 'yes' %>
-<%= label_tag 'Yes' %>
-<br>
-<%= radio_button_tag :distortion_visible, 'no' %>
-<%= label_tag 'No' %>
+<table>
+  <tr>
+    <td><%= radio_button_tag :distortion_visible, 'yes' %></td>
+    <td><%= label_tag 'Yes' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :distortion_visible, 'no' %></td>
+    <td><%= label_tag 'No' %></td>
+  </tr>
+</table>
