@@ -13,13 +13,6 @@ class QuestionController < ApplicationController
             if !session[:training] && !session[:training].nil?
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.distortion = params[:distortion_visible].to_s == 'yes' ? 1 : 0
-              score.save
-            end
-            'scale_ACR'
-
-          when 'scale_ACR' then
-            if !session[:training] && !session[:training].nil?
-              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.quality = params[:scale_ACR]
               score.save
             end
