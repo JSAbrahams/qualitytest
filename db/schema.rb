@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20170318152106) do
 
   create_table "campaign_sets", force: true do |t|
     t.string  "image_viewtimes_id"
-    t.integer "views"
     t.integer "started"
+    t.integer "completed"
   end
 
   create_table "image_viewtimes", force: true do |t|
@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.text    "semantic"
     t.text    "detail"
     t.text    "description"
-    t.text    "answered"
+    t.text    "start_time"
+    t.text    "end_time"
   end
 
   create_table "users", force: true do |t|
