@@ -61,6 +61,7 @@ class QuestionController < ApplicationController
             if !session[:training] && !session[:training].nil?
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.description = params[:describe_object]
+              score.answered = Time.now.strftime("%I:%M:%S %z")
               score.save
             end
             if session[:training].nil? or session[:training] == true

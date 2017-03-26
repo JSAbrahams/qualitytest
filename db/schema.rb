@@ -32,11 +32,12 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.integer "user_id",     null: false
     t.integer "img_id",      null: false
     t.integer "viewtime",    null: false
-    t.integer "distortion"
+    t.decimal "distortion"
     t.integer "quality"
     t.text    "semantic"
     t.text    "detail"
     t.text    "description"
+    t.text    "answered"
   end
 
   create_table "users", force: true do |t|
