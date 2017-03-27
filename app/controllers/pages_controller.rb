@@ -62,7 +62,7 @@ class PagesController < ApplicationController
 
   def end
     campaign = CampaignSet.find_by(id: session[:campaign])
-    campaign.views = campaign.completed + 1
+    campaign.completed = campaign.completed + 1
     campaign.save
 
     user = User.find_by(id: session[:userid])

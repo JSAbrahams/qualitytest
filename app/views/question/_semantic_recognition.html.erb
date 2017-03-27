@@ -7,10 +7,14 @@
   </tr>
   <tr>
     <td><%= radio_button_tag :semantic_recognition, 'outdoor_natural' %></td>
-    <td><%= label_tag :semantic, 'Outdoor Natural' %> <i>(for example, mountains, sea, field, etc)</i></td>
+    <td><%= label_tag :semantic, 'Outdoor Natural' %>
+      <i><%= session[:training] ||  session[:training].nil? ? '(for example, mountains, sea, field, etc)' : '' %></i>
+    </td>
   </tr>
   <tr>
     <td><%= radio_button_tag :semantic_recognition, 'outdoor_man_made' %></td>
-    <td><%= label_tag :semantic, 'Outdoor Man Made' %> <i>(for example, city, buildings, park, etc)</i></td>
+    <td><%= label_tag :semantic, 'Outdoor Man Made' %>
+      <i><%= session[:training] || session[:training].nil? ? '(for example, city, buildings, park, etc)' : '' %></i>
+    </td>
   </tr>
 </table>

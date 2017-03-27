@@ -43,9 +43,8 @@ ActiveRecord::Schema.define(version: 20170318152106) do
 
   create_table "users", force: true do |t|
     t.integer  "campaign_id"
-    t.string   "name"
-    t.string   "email"
     t.string   "gender"
+    t.text     "country"
     t.string   "age"
     t.datetime "start_time"
     t.datetime "end_time"

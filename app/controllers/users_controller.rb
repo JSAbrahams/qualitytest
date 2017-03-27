@@ -50,8 +50,6 @@ class UsersController < ApplicationController
     @user = User.new(:name => session[:userid], :email => "", :campaign_id => session[:campaign],)
     @user.age = params[:user][:age]
     @user.gender = params[:user][:gender]
-    @user.content1=""
-    @user.content2=""
     @user.start_time = Time.now.strftime("%I:%M:%S %z")
     @user.save
 
@@ -64,8 +62,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:content1, :content2, :id, :campaign_id, :start_time,
-                                 :name, :email, :gender, :age)
+    params.require(:user).permit(:validation_1, :validation_2, :id, :campaign_id, :start_time,
+                                 :country, :gender, :age)
   end
 
 end
