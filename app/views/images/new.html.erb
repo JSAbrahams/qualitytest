@@ -1,4 +1,4 @@
-<div id="image_container" onClick="show()" style="background-color: black;">
+<div id="image_container" onClick="show()" style="background: black url(/images/play_button.png) no-repeat center center;">
   <div id="test_image" style="visibility: hidden;">
     <%= link_to image_tag(@img.filepath), '#' %>
   </div>
@@ -23,6 +23,7 @@
 
     function hide() {
         document.getElementById("test_image").style.visibility = "hidden";
+        document.getElementById("image_container").style.background = "black";
         $("input[name='to_questions']").removeAttr("disabled");
     }
 </script>
