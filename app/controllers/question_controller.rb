@@ -84,6 +84,4 @@ class QuestionController < ApplicationController
     puts 'User user_id: [' + session[:userid].to_s + '] is now viewing question [' + session[:question].to_s + ']'
     @question = session[:question]
   end
-
-  private
 end
