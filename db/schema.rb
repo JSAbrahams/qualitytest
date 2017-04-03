@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20170318152106) do
 
   create_table "campaign_sets", force: true do |t|
     t.string  "image_viewtimes_id"
-    t.integer "views"
     t.integer "started"
+    t.integer "completed"
   end
 
   create_table "image_viewtimes", force: true do |t|
@@ -32,18 +32,19 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.integer "user_id",     null: false
     t.integer "img_id",      null: false
     t.integer "viewtime",    null: false
-    t.integer "distortion"
+    t.decimal "distortion"
     t.integer "quality"
     t.text    "semantic"
     t.text    "detail"
     t.text    "description"
+    t.text    "start_time"
+    t.text    "end_time"
   end
 
   create_table "users", force: true do |t|
     t.integer  "campaign_id"
-    t.string   "name"
-    t.string   "email"
     t.string   "gender"
+    t.text     "country"
     t.string   "age"
     t.datetime "start_time"
     t.datetime "end_time"

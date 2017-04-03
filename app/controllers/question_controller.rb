@@ -5,7 +5,7 @@ class QuestionController < ApplicationController
     @image_id = session[:image_ids][session[:img_num].to_i].to_i
     @view_time = session[:view_time].to_i
 
-    puts 'view_time: ' +  @view_time.to_i.to_s
+    puts 'view_time: ' + @view_time.to_i.to_s
 
     session[:question] =
         case session[:question]
@@ -61,6 +61,7 @@ class QuestionController < ApplicationController
             if !session[:training] && !session[:training].nil?
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.description = params[:describe_object]
+              score.end_time = Time.now.strftime("%I:%M:%S")
               score.save
             end
             if session[:training].nil? or session[:training] == true
@@ -72,7 +73,8 @@ class QuestionController < ApplicationController
 
           else
             if !session[:training] && !session[:training].nil?
-              Score.create user_id: @user_id, img_id: @image_id, viewtime: @view_time
+              Score.create user_id: @user_id, img_id: @image_id, viewtime: @view_time,
+                           start_time: Time.now.strftime("%I:%M:%S")
             end
             puts 'created score: ' + session[:score].to_s
 
@@ -82,6 +84,4 @@ class QuestionController < ApplicationController
     puts 'User user_id: [' + session[:userid].to_s + '] is now viewing question [' + session[:question].to_s + ']'
     @question = session[:question]
   end
-
-  private
 end

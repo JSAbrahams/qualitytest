@@ -1,3 +1,7 @@
+<p>Click on the play button to see the image. Attention! The image will appear for less than 1 second, and will only be
+  shown once!
+</p>
+
 <div id="image_container" onClick="show()" style="background: black url(/images/play_button.png) no-repeat center center;">
   <div id="test_image" style="visibility: hidden;">
     <%= link_to image_tag(@img.filepath), '#' %>
@@ -6,7 +10,7 @@
 
 <div class="buttons">
   <%= button_to 'Next', question_path, class: 'btn btn-large btn-primary',
-              :name => 'to_questions', :disabled => true %>
+                :name => 'to_questions', :disabled => true %>
 </div>
 
 <script>
