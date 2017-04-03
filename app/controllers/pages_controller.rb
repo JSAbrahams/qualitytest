@@ -13,10 +13,10 @@ class PagesController < ApplicationController
       session[:vcode] = Digest::SHA2.hexdigest(@finalstring)
       session[:vcode] = "mw-" + session[:vcode].to_s
 
-      setup(@userid)
-
       session[:microworkers] = '1'
       session[:content] = nil
+
+      setup(@userid)
     end
   end
 
@@ -95,9 +95,12 @@ class PagesController < ApplicationController
 
   private
 
+  # Set up session for a given user id. They are assigned a campaign by get_campaign_id, and all session variables are
+  # set accordingly: userid, campaign_set, image_ids, and view_time_ids.
+  # The training session variable is set to true and the validation variable is set to 1.
   def setup (userid)
-    session[:campaign] = CampaignSet.order(:completed).first.id
-    campaign = CampaignSet.find_by(id: session[:campaign])
+    session[:campaign_set] = get_campaign_id
+    campaign = CampaignSet.find_by(id: session[:campaign_set])
     campaign.started = campaign.started + 1
     campaign.save
 
@@ -121,11 +124,23 @@ class PagesController < ApplicationController
     }
 
     puts 'User user_id: ' + session[:userid].to_s
-    puts 'Campaign : ' + session[:campaign].to_s + ' : ' + @image_viewtimes.to_s
+    puts 'Campaign Set: ' + session[:campaign_set].to_s + ' : ' + @image_viewtimes.to_s
     puts 'Image ids: ' + session[:image_ids].to_s
     puts 'Presentation time ids: [' + session[:view_time_ids].to_s
 
     redirect_to newuser_path
+  end
+
+  # Get id of CampaignSet that has the least amount of started if that amount is less than 15.
+  # Otherwise, if all CampaignSet have 15 or more User that started, get id of CampaignSet with least CampaignSet.
+  def get_campaign_id
+    smallest_started = CampaignSet.order(:started).first
+
+    if smallest_started.started < 15
+      smallest_started.id
+    else
+      CampaignSet.order(:completed).first.id
+    end
   end
 
 end
