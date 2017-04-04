@@ -15,7 +15,7 @@
 
       <%= form_for(@user) do |f| %>
           <%= f.hidden_field :id, :value => session[:userid] %>
-          <%= f.hidden_field :campaign_id, :value => session[:campaign] %>
+          <%= f.hidden_field :campaign_id, :value => session[:campaign_set_id] %>
           <%= f.hidden_field :start_time, :value => Time.now.strftime("%I:%M:%S %z") %>
 
           <%= f.label :country %>

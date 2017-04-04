@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @user.save
 
     puts 'At ' + @user.start_time.to_s + 'User user_id: [' + session[:userid] + '] gets Campaign campaign_id: [' +
-             session[:campaign] + ']'
+             session[:campaign_set_id].to_s + ']'
 
     redirect_to intro_path
   end
