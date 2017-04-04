@@ -101,6 +101,7 @@ class PagesController < ApplicationController
   def setup (userid)
     session[:campaign_set] = get_campaign_id
     campaign = CampaignSet.find_by(id: session[:campaign_set])
+    session[:campaign] = campaign
     campaign.started = campaign.started + 1
     campaign.save
 
