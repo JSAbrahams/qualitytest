@@ -27,18 +27,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    if session[:content] == 1
-      @user = User.find_by!(name: session[:userid])
-      @user.content1 = params[:answer]
-      @user.update_attribute(:content1, @user.content1)
-      session[:content] = 2
+    if session[:validation] == 1
+      user = User.find_by(id: session[:userid])
+      user.validation_1 = params[:answer] == 'zebras' ? 1 : 0
+      user.save
+
+      session[:validation] = 2
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     else
-      @user = User.find_by!(name: session[:userid])
-      @user.content2 = params[:answer]
-      @user.update_attribute(:content2, @user.content2)
-      session[:content] = nil
+      user = User.find_by(id: session[:userid])
+      user.validation_2 = params[:answer] == 'car' ? 1 : 0
+      user.save
+
+      session[:validation] = nil
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     end
@@ -48,18 +50,20 @@ class UsersController < ApplicationController
     @user = User.new(:name => session[:userid], :email => "", :campaign_id => session[:campaign],)
     @user.age = params[:user][:age]
     @user.gender = params[:user][:gender]
-    @user.content1=""
-    @user.content2=""
     @user.start_time = Time.now.strftime("%I:%M:%S %z")
     @user.save
+
+    puts 'At ' + @user.start_time.to_s + 'User user_id: [' + session[:userid] + '] gets Campaign campaign_id: [' +
+             session[:campaign] + ']'
+
     redirect_to intro_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:content1, :content2, :id, :campaign_id, :start_time,
-                                 :name, :email, :gender, :age)
+    params.require(:user).permit(:validation_1, :validation_2, :id, :campaign_id, :start_time,
+                                 :country, :gender, :age)
   end
 
 end

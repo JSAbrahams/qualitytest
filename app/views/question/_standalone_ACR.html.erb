@@ -1,21 +1,3 @@
-<p>
-  Did you see any distortion in this image? <br>
-  <i><%= session[:training] || session[:training].nil? ? 'Distortion means any blur in the whole image' : '' %></i>
-</p>
-
-<table>
-  <tr>
-    <td><%= radio_button_tag :distortion_visible, 'yes' %></td>
-    <td><%= label_tag 'Yes' %></td>
-  </tr>
-  <tr>
-    <td><%= radio_button_tag :distortion_visible, 'no' %></td>
-    <td><%= label_tag 'No' %></td>
-  </tr>
-</table>
-
-<br>
-
 <p>Please indicate the quality of the image on a scale from 1 (bad) to 5 (excellent) below:</p>
 
 <div id="slider">

@@ -1,10 +1,20 @@
 <p>Please select the best category that describes the scene in the picture:</p>
 
-<%= radio_button_tag :semantic, 'indoor' %>
-<%= label_tag :semantic, 'Indoor' %>
-<br>
-<%= radio_button_tag :semantic, 'outdoor_natural' %>
-<%= label_tag :semantic, 'Outdoor Natural' %>
-<br>
-<%= radio_button_tag :semantic, 'outdoor_man_made' %>
-<%= label_tag :semantic, 'Outdoor Man Made' %>
+<table>
+  <tr>
+    <td><%= radio_button_tag :semantic_recognition, 'indoor' %></td>
+    <td><%= label_tag :semantic, 'Indoor' %> </td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :semantic_recognition, 'outdoor_natural' %></td>
+    <td><%= label_tag :semantic, 'Outdoor Natural' %>
+      <i><%= session[:training] ||  session[:training].nil? ? '(for example, mountains, sea, field, etc)' : '' %></i>
+    </td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :semantic_recognition, 'outdoor_man_made' %></td>
+    <td><%= label_tag :semantic, 'Outdoor Man Made' %>
+      <i><%= session[:training] || session[:training].nil? ? '(for example, city, buildings, park, etc)' : '' %></i>
+    </td>
+  </tr>
+</table>

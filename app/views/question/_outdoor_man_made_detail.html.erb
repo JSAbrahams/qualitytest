@@ -1,10 +1,16 @@
 <p>Please select the details that best describe the scene in the picture:</p>
 
-<%= radio_button_tag :outdoor_man_made_details, 'commercial' %>
-<%= label_tag 'Commercial buildings / shops / markets / cities / towns' %>
-<br>
-<%= radio_button_tag :outdoor_man_made_details, 'house' %>
-<%= label_tag 'Houses / cabins / gardens / farms' %>
-<br>
-<%= radio_button_tag :outdoor_man_made_details, 'park' %>
-<%= label_tag 'Sports fields / parks / leisure spaces' %>
+<table>
+  <tr>
+    <td><%= radio_button_tag :outdoor_man_made_detail, 'commercial_buildings/shops/markets/cities/towns' %></td>
+    <td><%= label_tag 'Commercial buildings / shops / markets / cities / towns' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :outdoor_man_made_detail, 'houses/cabins/gardens/farms' %></td>
+    <td><%= label_tag 'Houses / cabins / gardens / farms' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :outdoor_man_made_detail, 'sports_fields/parks/leisure_spaces' %></td>
+    <td><%= label_tag 'Sports fields / parks / leisure spaces' %></td>
+  </tr>
+</table>

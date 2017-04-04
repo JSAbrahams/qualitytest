@@ -11,23 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627133300) do
+ActiveRecord::Schema.define(version: 20170318152106) do
 
   create_table "campaign_sets", force: true do |t|
-    t.string "images"
-    t.integer "scale"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "image_viewtimes_id"
+    t.integer "started"
+    t.integer "completed"
+  end
+
+  create_table "image_viewtimes", force: true do |t|
+    t.integer "image_id",    null: false
+    t.integer "viewtime_id", null: false
   end
 
   create_table "images", force: true do |t|
-    t.decimal "recognizability"
-    t.string "user_id"
-    t.string "img_id"
-    t.string "scale"
-    t.integer "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text "filepath"
   end
+
+  create_table "scores", force: true do |t|
+    t.integer "user_id",     null: false
+    t.integer "img_id",      null: false
+    t.integer "viewtime",    null: false
+    t.decimal "distortion"
+    t.integer "quality"
+    t.text    "semantic"
+    t.text    "detail"
+    t.text    "description"
+    t.text    "start_time"
+    t.text    "end_time"
+  end
+
+  create_table "users", force: true do |t|
+    t.integer  "campaign_id"
+    t.string   "gender"
+    t.text     "country"
+    t.string   "age"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "validation_1"
+    t.integer  "validation_2"
+  end
+
+  create_table "viewtimes", force: true do |t|
+    t.integer "viewtime", null: false
+  end
+
+  add_index "viewtimes", ["id", "viewtime"], name: "sqlite_autoindex_viewtimes_1", unique: true
 
 end

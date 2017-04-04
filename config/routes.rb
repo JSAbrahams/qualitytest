@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   get 'training' => 'training#training'
   get 'training2' => 'training#training2'
+  get 'training3' => 'training#training3'
   get 'ready' => 'training#ready'
 
   get 'question' => 'question#question'
