@@ -36,7 +36,7 @@ class PagesController < ApplicationController
   end
 
   def end
-    campaign = CampaignSet.find_by(id: session[:campaign])
+    campaign = CampaignSet.find_by(id: session[:campaign_set_id])
     campaign.completed = campaign.completed + 1
     campaign.save
 
@@ -45,7 +45,7 @@ class PagesController < ApplicationController
     user.save
 
     session[:userid] = nil
-    session[:campaign] = nil
+    session[:campaign_set_id] = nil
     session[:images] = nil
     session[:img_num] = nil
     session[:training] = nil
@@ -99,13 +99,13 @@ class PagesController < ApplicationController
   # set accordingly: userid, campaign_set, image_ids, and view_time_ids.
   # The training session variable is set to true and the validation variable is set to 1.
   def setup (userid)
-    session[:campaign_set] = get_campaign_id
-    campaign = CampaignSet.find_by(id: session[:campaign_set])
-    campaign.started = campaign.started + 1
-    campaign.save
+    session[:campaign_set_id] = get_campaign_id
+    campaign_set = CampaignSet.find_by(id: session[:campaign_set_id])
+    campaign_set.started = campaign_set.started + 1
+    campaign_set.save
 
     session[:userid] = userid
-    session[:image_viewtime_ids] = CampaignSet.find(session[:campaign]).image_viewtimes_id
+    session[:image_viewtime_ids] = campaign_set.image_viewtimes_id
 
     session[:validation] = 1
     session[:question] = NIL
@@ -124,7 +124,7 @@ class PagesController < ApplicationController
     }
 
     puts 'User user_id: ' + session[:userid].to_s
-    puts 'Campaign Set: ' + session[:campaign_set].to_s + ' : ' + @image_viewtimes.to_s
+    puts 'Campaign Set: id:' + campaign_set.id.to_s + ', image viewtimes: ' + @image_viewtimes.to_s
     puts 'Image ids: ' + session[:image_ids].to_s
     puts 'Presentation time ids: [' + session[:view_time_ids].to_s
 
