@@ -14,6 +14,7 @@ class QuestionController < ApplicationController
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.distortion = params[:distortion_visible].to_s == 'yes' ? 1 : 0
               score.quality = params[:scale_ACR]
+              score.description = params[:describe_object]
               score.save
             end
             'semantic_recognition'
@@ -37,39 +38,25 @@ class QuestionController < ApplicationController
             if !session[:training] && !session[:training].nil?
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.detail = params[:indoor_detail]
-              score.save
+              save_score(score)
             end
-            'describe_object'
+            reset
 
           when 'outdoor_natural_detail' then
             if !session[:training] && !session[:training].nil?
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.detail = params[:outdoor_natural_detail]
-              score.save
+              save_score(score)
             end
-            'describe_object'
+            reset
 
           when 'outdoor_man_made_detail' then
             if !session[:training] && !session[:training].nil?
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.detail = params[:outdoor_man_made_detail]
-              score.save
+              save_score(score)
             end
-            'describe_object'
-
-          when 'describe_object'
-            if !session[:training] && !session[:training].nil?
-              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
-              score.description = params[:describe_object]
-              score.end_time = Time.now.strftime("%I:%M:%S")
-              score.save
-            end
-            if session[:training].nil? or session[:training] == true
-              session[:training] = false
-              redirect_to ready_path
-            else
-              redirect_to new_image_path
-            end
+            reset
 
           else
             if !session[:training] && !session[:training].nil?
@@ -83,5 +70,19 @@ class QuestionController < ApplicationController
 
     puts 'User user_id: [' + session[:userid].to_s + '] is now viewing question [' + session[:question].to_s + ']'
     @question = session[:question]
+  end
+
+  def save_score (score)
+    score.end_time = Time.now.strftime("%I:%M:%S")
+    score.save
+  end
+
+  def reset
+    if session[:training].nil? or session[:training] == true
+      session[:training] = false
+      redirect_to ready_path
+    else
+      redirect_to new_image_path
+    end
   end
 end

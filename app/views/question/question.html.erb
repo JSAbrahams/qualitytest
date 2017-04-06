@@ -14,23 +14,31 @@
 <% end %>
 
 <script>
-    var $radioButtons = $("input:radio");
+    $radioButtons = $("input:radio");
 
     // if no radio buttons
     if ($radioButtons.size() == 0) {
         $("input[name='commit']").removeAttr("disabled");
     }
 
+    // group radio buttons
+    var radio_groups = {};
+    $(":radio").each(function () {
+        radio_groups[this.name] = true
+    });
+
     $radioButtons.change(function () {
-        var anyRadioButtonHasValue = false;
+        var allChecked = true;
 
-        $radioButtons.each(function () {
-            if (this.checked) {
-                anyRadioButtonHasValue = true;
+        // Check if a group has at least one radio button selected
+        for (group in radio_groups) {
+            if ($(":radio[name='" + group + "']:checked").length == 0) {
+                allChecked = false
+                break;
             }
-        });
+        }
 
-        if (anyRadioButtonHasValue) {
+        if (allChecked) {
             $("input[name='commit']").removeAttr("disabled");
         }
     })
