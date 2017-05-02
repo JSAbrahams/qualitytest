@@ -41,7 +41,7 @@
     var select_age, select_gender; // not the best solution
 
     var check_value = function () {
-        if (select_age !== undefined && select_gender !== undefined && select_age !== "" && select_gender !== "") {
+        if (select_age && select_gender) {
             $("input[name='commit']").removeAttr("disabled");
         } else {
             $("input[name='commit']")[0].setAttribute("disabled", "true");
