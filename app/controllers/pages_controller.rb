@@ -128,7 +128,7 @@ class PagesController < ApplicationController
     puts 'Image ids: ' + session[:image_ids].to_s
     puts 'Presentation time ids: [' + session[:view_time_ids].to_s
 
-    redirect_to newuser_path
+    redirect_to createuser_path
   end
 
   # Get id of CampaignSet that has the least amount of started if that amount is less than 15.
