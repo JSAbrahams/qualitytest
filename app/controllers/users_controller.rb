@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if session[:validation] == 1
-      user = User.find_by(id: session[:userid])
+      user = User.find_by(user_id: session[:userid])
       user.validation_1 = params[:answer] == 'zebras' ? 1 : 0
       user.save
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     else
-      user = User.find_by(id: session[:userid])
+      user = User.find_by(user_id: session[:userid])
       user.validation_2 = params[:answer] == 'car' ? 1 : 0
       user.save
 
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:validation_1, :validation_2, :id, :campaign_id, :start_time,
+    params.require(:user).permit(:validation_1, :validation_2, :user_id, :campaign_id, :start_time,
                                  :country, :gender, :age)
   end
 

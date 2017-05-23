@@ -40,7 +40,7 @@ class PagesController < ApplicationController
     campaign.completed = campaign.completed + 1
     campaign.save
 
-    user = User.find_by(id: session[:userid])
+    user = User.find_by(user_id: session[:userid])
     user.end_time = Time.now.strftime("%I:%M:%S %z")
     user.save
 
@@ -128,7 +128,7 @@ class PagesController < ApplicationController
     puts 'Image ids: ' + session[:image_ids].to_s
     puts 'Presentation time ids: [' + session[:view_time_ids].to_s
 
-    redirect_to newuser_path
+    redirect_to createuser_path
   end
 
   # Get id of CampaignSet that has the least amount of started if that amount is less than 15.
