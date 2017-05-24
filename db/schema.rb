@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170318152106) do
   end
 
   create_table "scores", force: true do |t|
-    t.integer "user_id",     null: false
+    t.text    "user_id",     null: false
     t.integer "img_id",      null: false
     t.integer "viewtime",    null: false
     t.decimal "distortion"
