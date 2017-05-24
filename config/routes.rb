@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   post 'crowdsourceuser' => 'users#crowdsourceuser'
-  get 'newuser' => 'users#new'
-  post 'newuser' => 'users#create'
+  get 'createuser' => 'users#new'
+  post 'createuser' => 'users#create'
   post 'update' => 'users#update'
   get 'content' => 'users#content'
   get 'contentanswer' => 'users#contentanswer'
