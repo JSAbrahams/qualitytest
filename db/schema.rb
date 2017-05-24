@@ -41,7 +41,8 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.text    "end_time"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", id: false, force: true do |t|
+    t.text     "user_id"
     t.integer  "campaign_id"
     t.string   "gender"
     t.text     "country"
