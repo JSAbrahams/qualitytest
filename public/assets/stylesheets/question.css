@@ -1,0 +1,39 @@
+#test_image {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#test-image img {
+    width: auto;
+}
+
+#slider {
+    margin-top: 20px;
+}
+
+.anchors img {
+    margin-top: 5px;
+    height: 120px;
+    width: auto;
+    position: relative;
+}
+
+
+.anchors td {
+    text-align: center;
+}
+
+
+label{
+    margin-top: 5px;
+    display: inline-block;
+    text-align:center;
+}
+
+label:first-child{
+    text-align:left;
+}
+label:last-child{
+    text-align:right;
+}
