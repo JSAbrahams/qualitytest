@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def crowdsourceuser
-    @user = User.new(:name => session[:user_id].to_s, :email => "", :campaign_id => session[:campaign],)
+    @user = User.new(:user_id => session[:user_id].to_s, :campaign_id => session[:campaign],)
     @user.age = params[:user][:age]
     @user.gender = params[:user][:gender]
     @user.start_time = Time.now.strftime("%I:%M:%S %z")
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:validation_1, :validation_2, :user_id, :campaign_id, :start_time,
+    params.require(:user).permit(:user_id, :validation_1, :validation_2, :campaign_id, :start_time,
                                  :country, :gender, :age)
   end
 end
