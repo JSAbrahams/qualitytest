@@ -14,7 +14,7 @@
       <p>Please fill in the details below, and press 'Save and continue' to start the test.</p>
 
       <%= form_for(@user) do |f| %>
-          <%= f.hidden_field :id, :value => session[:userid] %>
+          <%= f.hidden_field :id, :value => session[:user_id] %>
           <%= f.hidden_field :campaign_id, :value => session[:campaign_set_id] %>
           <%= f.hidden_field :start_time, :value => Time.now.strftime("%I:%M:%S %z") %>
 

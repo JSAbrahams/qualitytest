@@ -1,7 +1,7 @@
 class QuestionController < ApplicationController
 
   def question
-    @user_id = session[:userid]
+    @user_id = session[:user_id]
     @image_id = session[:image_ids][session[:img_num].to_i].to_i
     @view_time = session[:view_time].to_i
 
@@ -68,7 +68,7 @@ class QuestionController < ApplicationController
             'distortion_visible'
         end
 
-    puts 'User user_id: [' + session[:userid].to_s + '] is now viewing question [' + session[:question].to_s + ']'
+    puts 'User user_id: [' + session[:user_id].to_s + '] is now viewing question [' + session[:question].to_s + ']'
     @question = session[:question]
   end
 
