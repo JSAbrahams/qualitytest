@@ -104,7 +104,7 @@ class PagesController < ApplicationController
     campaign_set.started = campaign_set.started + 1
     campaign_set.save
 
-    session[:user_id] = userid
+    session[:user_id] = userid.to_s
     session[:image_viewtime_ids] = campaign_set.image_viewtimes_id
 
     session[:validation] = 1
