@@ -7,6 +7,7 @@ class ImagesController < ApplicationController
 
     if session[:training] || session[:training].nil?
       @img = Image.find(-1)
+      session[:view_time] = 107
       puts 'User shown training image: ' + @img.filepath.to_s
       return
     end
