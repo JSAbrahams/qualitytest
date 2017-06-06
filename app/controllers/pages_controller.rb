@@ -40,11 +40,11 @@ class PagesController < ApplicationController
     campaign.completed = campaign.completed + 1
     campaign.save
 
-    user = User.find_by(id: session[:userid])
+    user = User.find_by(user_id: session[:user_id])
     user.end_time = Time.now.strftime("%I:%M:%S %z")
     user.save
 
-    session[:userid] = nil
+    session[:user_id] = nil
     session[:campaign_set_id] = nil
     session[:images] = nil
     session[:img_num] = nil
@@ -104,7 +104,7 @@ class PagesController < ApplicationController
     campaign_set.started = campaign_set.started + 1
     campaign_set.save
 
-    session[:userid] = userid
+    session[:user_id] = userid.to_s
     session[:image_viewtime_ids] = campaign_set.image_viewtimes_id
 
     session[:validation] = 1
@@ -123,12 +123,12 @@ class PagesController < ApplicationController
       session[:view_time_ids].push @image_viewtime.viewtime_id
     }
 
-    puts 'User user_id: ' + session[:userid].to_s
+    puts 'User user_id: ' + session[:user_id].to_s
     puts 'Campaign Set: id:' + campaign_set.id.to_s + ', image viewtimes: ' + @image_viewtimes.to_s
     puts 'Image ids: ' + session[:image_ids].to_s
     puts 'Presentation time ids: [' + session[:view_time_ids].to_s
 
-    redirect_to newuser_path
+    redirect_to createuser_path
   end
 
   # Get id of CampaignSet that has the least amount of started if that amount is less than 15.

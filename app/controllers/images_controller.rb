@@ -4,6 +4,14 @@ class ImagesController < ApplicationController
     # depending on the campaign id, selects the next condition in the sequences, which links to a different table
     # which has a presentation time, and an image id, which links to an image path (unique for each image +
     # distortion level)
+
+    if session[:training] || session[:training].nil?
+      @img = Image.find(-1)
+      session[:view_time] = 107
+      puts 'User shown training image: ' + @img.filepath.to_s
+      return
+    end
+
     @img_num = session[:img_num].to_i
 
     if @img_num < (session[:image_ids].length-1)
@@ -23,7 +31,7 @@ class ImagesController < ApplicationController
     @img = Image.find(session[:image_ids][@img_num].to_i)
     session[:view_time] = Viewtime.find(session[:view_time_ids][@img_num].to_i).viewtime
 
-    puts 'User user_id: [' + session[:userid].to_s + ']'
+    puts 'User user_id: [' + session[:user_id].to_s + ']'
     puts 'Viewing image_id: [' + session[:image_ids][@img_num].to_s+ '], image: [' +@img.filepath.to_s + ']'
     puts 'With viewtime_id: [' + session[:view_time_ids][@img_num].to_s+ '], view time: [' +
              session[:view_time].to_s + ']'

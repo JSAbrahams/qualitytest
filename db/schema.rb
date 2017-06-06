@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170318152106) do
   end
 
   create_table "scores", force: true do |t|
-    t.integer "user_id",     null: false
+    t.text    "user_id",     null: false
     t.integer "img_id",      null: false
     t.integer "viewtime",    null: false
     t.decimal "distortion"
@@ -41,7 +41,8 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.text    "end_time"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", id: false, force: true do |t|
+    t.text     "user_id"
     t.integer  "campaign_id"
     t.string   "gender"
     t.text     "country"

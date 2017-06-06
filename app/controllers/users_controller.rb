@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if session[:validation] == 1
-      user = User.find_by(id: session[:userid])
+      user = User.find_by(user_id: session[:user_id])
       user.validation_1 = params[:answer] == 'zebras' ? 1 : 0
       user.save
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     else
-      user = User.find_by(id: session[:userid])
+      user = User.find_by(user_id: session[:user_id])
       user.validation_2 = params[:answer] == 'car' ? 1 : 0
       user.save
 
@@ -47,13 +47,13 @@ class UsersController < ApplicationController
   end
 
   def crowdsourceuser
-    @user = User.new(:name => session[:userid], :email => "", :campaign_id => session[:campaign],)
+    @user = User.new(:user_id => session[:user_id].to_s, :campaign_id => session[:campaign],)
     @user.age = params[:user][:age]
     @user.gender = params[:user][:gender]
     @user.start_time = Time.now.strftime("%I:%M:%S %z")
     @user.save
 
-    puts 'At ' + @user.start_time.to_s + 'User user_id: [' + session[:userid] + '] gets Campaign campaign_id: [' +
+    puts 'At ' + @user.start_time.to_s + 'User user_id: [' + session[:user_id] + '] gets Campaign campaign_id: [' +
              session[:campaign_set_id].to_s + ']'
 
     redirect_to intro_path
@@ -62,8 +62,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:validation_1, :validation_2, :id, :campaign_id, :start_time,
-                                 :country, :gender, :age)
+    params.require(:user).permit(:user_id, :validation_1, :validation_2, :campaign_id, :start_time, :country,
+                                 :gender, :age)
   end
-
 end

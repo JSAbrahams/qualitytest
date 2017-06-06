@@ -9,7 +9,7 @@
 <p align="center">Please fill in your gender and age below, for demographic survey in our research only.</p>
 
 <%= form_for User.new, url: crowdsourceuser_path do |f| %>
-    <%= f.hidden_field(:id, :value => session[:userid].to_s) %>
+    <%= f.hidden_field(:id, :value => session[:user_id].to_s) %>
     <table align="center" class="question">
       <tr>
         <td><%= label_tag ("Gender :") %>

@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root to: 'pages#index', campaign: nil, userid: nil, mw: nil
+  root to: 'pages#index', campaign: nil, user_id: nil, mw: nil
   get 'pages/index/:user/:mw' => 'pages#index', user: :user, mw: :mw
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   post 'crowdsourceuser' => 'users#crowdsourceuser'
-  get 'newuser' => 'users#new'
-  post 'newuser' => 'users#create'
+  get 'createuser' => 'users#new'
+  post 'createuser' => 'users#create'
   post 'update' => 'users#update'
   get 'content' => 'users#content'
   get 'contentanswer' => 'users#contentanswer'
