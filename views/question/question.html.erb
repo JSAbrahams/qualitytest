@@ -1,0 +1,45 @@
+<h1><%= (session[:training] || session[:training].nil?) ? 'Example' : 'Questions' %> : Image Quality</h1>
+<!--<%= session[:test_set] %>
+<%= session[:subtask] %>
+<%= session[:first] %>-->
+
+<%= form_tag controller: 'question', action: 'question', class: 'nifty_form' do %>
+    <div align="center">
+      <%= render partial: "question/#{@question}" %>
+    </div>
+
+    <div class="buttons">
+      <%= submit_tag 'Next', class: 'btn btn-large btn-primary', :disabled => true %>
+    </div>
+<% end %>
+
+<script>
+    $radioButtons = $("input:radio");
+
+    // if no radio buttons
+    if ($radioButtons.size() == 0) {
+        $("input[name='commit']").removeAttr("disabled");
+    }
+
+    // group radio buttons
+    var radio_groups = {};
+    $(":radio").each(function () {
+        radio_groups[this.name] = true
+    });
+
+    $radioButtons.change(function () {
+        var allChecked = true;
+
+        // Check if a group has at least one radio button selected
+        for (group in radio_groups) {
+            if ($(":radio[name='" + group + "']:checked").length == 0) {
+                allChecked = false
+                break;
+            }
+        }
+
+        if (allChecked) {
+            $("input[name='commit']").removeAttr("disabled");
+        }
+    })
+</script>

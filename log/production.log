@@ -1,0 +1,483 @@
+I, [2017-06-08T17:04:22.284685 #10140]  INFO -- : Started GET "/pages/index/user1/mw1" for 127.0.0.1 at 2017-06-08 17:04:22 +0200
+I, [2017-06-08T17:04:22.301687 #10140]  INFO -- : Processing by PagesController#index as HTML
+I, [2017-06-08T17:04:22.301687 #10140]  INFO -- :   Parameters: {"user"=>"user1", "mw"=>"mw1"}
+I, [2017-06-08T17:04:22.369694 #10140]  INFO -- : Redirected to http://localhost:3000/createuser
+I, [2017-06-08T17:04:22.369694 #10140]  INFO -- : Completed 302 Found in 68ms (ActiveRecord: 29.0ms)
+I, [2017-06-08T17:04:22.371694 #10140]  INFO -- : Started GET "/pages/index/usda/mw1" for 127.0.0.1 at 2017-06-08 17:04:22 +0200
+I, [2017-06-08T17:04:22.373694 #10140]  INFO -- : Processing by PagesController#index as HTML
+I, [2017-06-08T17:04:22.373694 #10140]  INFO -- :   Parameters: {"user"=>"usda", "mw"=>"mw1"}
+I, [2017-06-08T17:04:22.412698 #10140]  INFO -- : Redirected to http://localhost:3000/createuser
+I, [2017-06-08T17:04:22.412698 #10140]  INFO -- : Completed 302 Found in 39ms (ActiveRecord: 29.0ms)
+I, [2017-06-08T17:04:22.425699 #10140]  INFO -- : Started GET "/createuser" for 127.0.0.1 at 2017-06-08 17:04:22 +0200
+I, [2017-06-08T17:04:22.428700 #10140]  INFO -- : Processing by UsersController#new as HTML
+I, [2017-06-08T17:04:22.447702 #10140]  INFO -- :   Rendered users/new.html.erb within layouts/application (14.0ms)
+I, [2017-06-08T17:04:22.450702 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:04:22.451702 #10140]  INFO -- :   Rendered layouts/_header.html.erb (1.0ms)
+I, [2017-06-08T17:04:22.452702 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:04:22.452702 #10140]  INFO -- : Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:04:22.891746 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:04:22 +0200
+F, [2017-06-08T17:04:22.894746 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:04:29.412002 #10140]  INFO -- : Started POST "/users" for 127.0.0.1 at 2017-06-08 17:04:29 +0200
+I, [2017-06-08T17:04:29.415002 #10140]  INFO -- : Processing by UsersController#create as HTML
+I, [2017-06-08T17:04:29.415002 #10140]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"aUjeSDvar3N8lQ6iLXEmdofo0Sc6AZEbmkv1gPSLBwA=", "user"=>{"user_id"=>"usda", "campaign_id"=>"27", "start_time"=>"05:04:22 +0200", "country"=>"netherlands", "gender"=>"F", "age"=>"73"}, "commit"=>"Save and continue"}
+I, [2017-06-08T17:04:29.445005 #10140]  INFO -- : Redirected to http://localhost:3000/intro
+I, [2017-06-08T17:04:29.445005 #10140]  INFO -- : Completed 302 Found in 30ms (ActiveRecord: 27.0ms)
+I, [2017-06-08T17:04:29.458007 #10140]  INFO -- : Started GET "/intro" for 127.0.0.1 at 2017-06-08 17:04:29 +0200
+I, [2017-06-08T17:04:29.460007 #10140]  INFO -- : Processing by PagesController#intro as HTML
+I, [2017-06-08T17:04:29.463007 #10140]  INFO -- :   Rendered pages/intro.html.erb within layouts/application (0.0ms)
+I, [2017-06-08T17:04:29.464007 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:04:29.465007 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:04:29.466007 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:04:29.467007 #10140]  INFO -- : Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:04:29.586019 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:04:29 +0200
+F, [2017-06-08T17:04:29.589020 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:04:48.543313 #10140]  INFO -- : Started GET "/totraining" for 127.0.0.1 at 2017-06-08 17:04:48 +0200
+I, [2017-06-08T17:04:48.550314 #10140]  INFO -- : Processing by PagesController#totraining as HTML
+I, [2017-06-08T17:04:48.556314 #10140]  INFO -- :   Rendered pages/totraining.html.erb within layouts/application (1.0ms)
+I, [2017-06-08T17:04:48.559315 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:04:48.562315 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:04:48.564315 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (1.0ms)
+I, [2017-06-08T17:04:48.564315 #10140]  INFO -- : Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:04:48.710330 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:04:48 +0200
+F, [2017-06-08T17:04:48.713330 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:04:49.910406 #10140]  INFO -- : Started GET "/training" for 127.0.0.1 at 2017-06-08 17:04:49 +0200
+I, [2017-06-08T17:04:49.918406 #10140]  INFO -- : Processing by TrainingController#training as HTML
+I, [2017-06-08T17:04:49.922407 #10140]  INFO -- :   Rendered training/training.html.erb within layouts/application (1.0ms)
+I, [2017-06-08T17:04:49.925407 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:04:49.926407 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:04:49.927407 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:04:49.927407 #10140]  INFO -- : Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:04:50.045419 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:04:50 +0200
+F, [2017-06-08T17:04:50.047419 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:04:53.156576 #10140]  INFO -- : Started GET "/training2" for 127.0.0.1 at 2017-06-08 17:04:53 +0200
+I, [2017-06-08T17:04:53.171578 #10140]  INFO -- : Processing by TrainingController#training2 as HTML
+I, [2017-06-08T17:04:53.177578 #10140]  INFO -- :   Rendered training/training2.html.erb within layouts/application (2.0ms)
+I, [2017-06-08T17:04:53.179579 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:04:53.180579 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:04:53.182579 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (1.0ms)
+I, [2017-06-08T17:04:53.182579 #10140]  INFO -- : Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:04:53.272588 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:04:53 +0200
+F, [2017-06-08T17:04:53.276588 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:04:54.711678 #10140]  INFO -- : Started GET "/training3" for 127.0.0.1 at 2017-06-08 17:04:54 +0200
+I, [2017-06-08T17:04:54.720679 #10140]  INFO -- : Processing by TrainingController#training3 as HTML
+I, [2017-06-08T17:04:54.723679 #10140]  INFO -- :   Rendered training/training3.html.erb within layouts/application (1.0ms)
+I, [2017-06-08T17:04:54.725679 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:04:54.726679 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:04:54.727679 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:04:54.727679 #10140]  INFO -- : Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:04:54.865693 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:04:54 +0200
+F, [2017-06-08T17:04:54.868694 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:05:03.624891 #10140]  INFO -- : Started GET "/show" for 127.0.0.1 at 2017-06-08 17:05:03 +0200
+I, [2017-06-08T17:05:03.629891 #10140]  INFO -- : Processing by ImagesController#new as HTML
+I, [2017-06-08T17:05:03.653893 #10140]  INFO -- :   Rendered images/new.html.erb within layouts/application (1.0ms)
+I, [2017-06-08T17:05:03.655894 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:05:03.655894 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:05:03.656894 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:05:03.657894 #10140]  INFO -- : Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+I, [2017-06-08T17:05:03.754904 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:05:03 +0200
+F, [2017-06-08T17:05:03.757904 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:05:06.764076 #10140]  INFO -- : Started POST "/question" for 127.0.0.1 at 2017-06-08 17:05:06 +0200
+I, [2017-06-08T17:05:06.768076 #10140]  INFO -- : Processing by QuestionController#question as HTML
+I, [2017-06-08T17:05:06.768076 #10140]  INFO -- :   Parameters: {"to_questions"=>"Next", "authenticity_token"=>"aUjeSDvar3N8lQ6iLXEmdofo0Sc6AZEbmkv1gPSLBwA="}
+I, [2017-06-08T17:05:06.782078 #10140]  INFO -- :   Rendered question/_distortion_visible.html.erb (2.0ms)
+I, [2017-06-08T17:05:06.782078 #10140]  INFO -- :   Rendered question/question.html.erb within layouts/application (5.0ms)
+I, [2017-06-08T17:05:06.784078 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:05:06.785078 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:05:06.786078 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:05:06.786078 #10140]  INFO -- : Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:05:06.900089 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:05:06 +0200
+F, [2017-06-08T17:05:06.904090 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:05:14.827286 #10140]  INFO -- : Started POST "/question?class=nifty_form" for 127.0.0.1 at 2017-06-08 17:05:14 +0200
+I, [2017-06-08T17:05:14.837287 #10140]  INFO -- : Processing by QuestionController#question as HTML
+I, [2017-06-08T17:05:14.837287 #10140]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"aUjeSDvar3N8lQ6iLXEmdofo0Sc6AZEbmkv1gPSLBwA=", "distortion_visible"=>"no", "scale_ACR"=>"2", "describe_object"=>"animate_animal", "commit"=>"Next", "class"=>"nifty_form"}
+I, [2017-06-08T17:05:14.852289 #10140]  INFO -- :   Rendered question/_semantic_recognition.html.erb (1.0ms)
+I, [2017-06-08T17:05:14.853289 #10140]  INFO -- :   Rendered question/question.html.erb within layouts/application (8.0ms)
+I, [2017-06-08T17:05:14.855289 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (1.0ms)
+I, [2017-06-08T17:05:14.856289 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:05:14.857289 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:05:14.858289 #10140]  INFO -- : Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:05:14.938297 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:05:14 +0200
+F, [2017-06-08T17:05:14.942298 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:05:17.348417 #10140]  INFO -- : Started POST "/question?class=nifty_form" for 127.0.0.1 at 2017-06-08 17:05:17 +0200
+I, [2017-06-08T17:05:17.355418 #10140]  INFO -- : Processing by QuestionController#question as HTML
+I, [2017-06-08T17:05:17.356418 #10140]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"aUjeSDvar3N8lQ6iLXEmdofo0Sc6AZEbmkv1gPSLBwA=", "semantic_recognition"=>"outdoor_natural", "commit"=>"Next", "class"=>"nifty_form"}
+I, [2017-06-08T17:05:17.369419 #10140]  INFO -- :   Rendered question/_outdoor_natural_detail.html.erb (1.0ms)
+I, [2017-06-08T17:05:17.370419 #10140]  INFO -- :   Rendered question/question.html.erb within layouts/application (7.0ms)
+I, [2017-06-08T17:05:17.372419 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:05:17.374419 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:05:17.377420 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (1.0ms)
+I, [2017-06-08T17:05:17.378420 #10140]  INFO -- : Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:05:17.477430 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:05:17 +0200
+F, [2017-06-08T17:05:17.480430 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:05:18.827495 #10140]  INFO -- : Started POST "/question?class=nifty_form" for 127.0.0.1 at 2017-06-08 17:05:18 +0200
+I, [2017-06-08T17:05:18.830495 #10140]  INFO -- : Processing by QuestionController#question as HTML
+I, [2017-06-08T17:05:18.830495 #10140]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"aUjeSDvar3N8lQ6iLXEmdofo0Sc6AZEbmkv1gPSLBwA=", "outdoor_natural_detail"=>"water/ice/snow", "commit"=>"Next", "class"=>"nifty_form"}
+I, [2017-06-08T17:05:18.832495 #10140]  INFO -- : Redirected to http://localhost:3000/ready
+I, [2017-06-08T17:05:18.834495 #10140]  INFO -- : Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+I, [2017-06-08T17:05:18.850497 #10140]  INFO -- : Started GET "/ready" for 127.0.0.1 at 2017-06-08 17:05:18 +0200
+I, [2017-06-08T17:05:18.862498 #10140]  INFO -- : Processing by TrainingController#ready as HTML
+I, [2017-06-08T17:05:18.868499 #10140]  INFO -- :   Rendered training/ready.html.erb within layouts/application (1.0ms)
+I, [2017-06-08T17:05:18.870499 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:05:18.872499 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:05:18.874499 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:05:18.874499 #10140]  INFO -- : Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:05:18.977510 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:05:18 +0200
+F, [2017-06-08T17:05:18.979510 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:05:19.729551 #10140]  INFO -- : Started GET "/show" for 127.0.0.1 at 2017-06-08 17:05:19 +0200
+I, [2017-06-08T17:05:19.729551 #10140]  INFO -- : Processing by ImagesController#new as HTML
+I, [2017-06-08T17:05:19.735552 #10140]  INFO -- :   Rendered images/new.html.erb within layouts/application (1.0ms)
+I, [2017-06-08T17:05:19.736552 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:05:19.737552 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:05:19.738552 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:05:19.739552 #10140]  INFO -- : Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+I, [2017-06-08T17:05:19.879566 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:05:19 +0200
+F, [2017-06-08T17:05:19.883567 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2017-06-08T17:05:22.139704 #10140]  INFO -- : Started POST "/question" for 127.0.0.1 at 2017-06-08 17:05:22 +0200
+I, [2017-06-08T17:05:22.142705 #10140]  INFO -- : Processing by QuestionController#question as HTML
+I, [2017-06-08T17:05:22.142705 #10140]  INFO -- :   Parameters: {"to_questions"=>"Next", "authenticity_token"=>"aUjeSDvar3N8lQ6iLXEmdofo0Sc6AZEbmkv1gPSLBwA="}
+I, [2017-06-08T17:05:22.181708 #10140]  INFO -- :   Rendered question/_distortion_visible.html.erb (1.0ms)
+I, [2017-06-08T17:05:22.181708 #10140]  INFO -- :   Rendered question/question.html.erb within layouts/application (2.0ms)
+I, [2017-06-08T17:05:22.183709 #10140]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2017-06-08T17:05:22.184709 #10140]  INFO -- :   Rendered layouts/_header.html.erb (0.0ms)
+I, [2017-06-08T17:05:22.185709 #10140]  INFO -- :   Rendered layouts/_footer.html.erb (0.0ms)
+I, [2017-06-08T17:05:22.185709 #10140]  INFO -- : Completed 200 OK in 42ms (Views: 8.0ms | ActiveRecord: 28.0ms)
+I, [2017-06-08T17:05:22.276718 #10140]  INFO -- : Started GET "/assets/bootstrap" for 127.0.0.1 at 2017-06-08 17:05:22 +0200
+F, [2017-06-08T17:05:22.279718 #10140] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap"):
+  actionpack (4.1.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.8) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.8) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.8) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.8) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.8) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.8) lib/rails/engine.rb:514:in `call'
+  railties (4.1.8) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+

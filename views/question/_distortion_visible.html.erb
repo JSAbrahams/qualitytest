@@ -1,0 +1,78 @@
+<div>
+<p>
+  Did you see any distortion in this image? <br>
+  <i><%= session[:training] || session[:training].nil? ? 'Distortion means any blur in the whole image' : '' %></i>
+</p>
+
+<table>
+  <tr>
+    <td><%= radio_button_tag :distortion_visible, 'yes' %></td>
+    <td><%= label_tag 'Yes' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :distortion_visible, 'no' %></td>
+    <td><%= label_tag 'No' %></td>
+  </tr>
+</table>
+</div>
+
+<br>
+
+<div>
+<p>Please indicate the quality of the image on a scale from 1 (bad) to 5 (excellent) below:</p>
+
+<div id="slider">
+  <table style="width:100%">
+    <tr>
+      <%= range_field_tag :scale_ACR, 3, :in => 1..5, :step => 1, style: 'width:100%;' %>
+    </tr>
+    <tr>
+      <td style="text-align:left" width="12.5%">1</td>
+      <td style="text-align:center">2</td>
+      <td style="text-align:center" width="25%">3</td>
+      <td style="text-align:center" width="25%">4</td>
+      <td style="text-align:right" width="12.5%">5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left" width="12.5%">Bad</td>
+      <td style="text-align:center">Poor</td>
+      <td style="text-align:center" width="25%">Fair</td>
+      <td style="text-align:center" width="25%">Good</td>
+      <td style="text-align:right" width="12.5%">Excellent</td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<br>
+
+<div>
+<p>Please select the best category that describes the object in the picture:</p>
+
+<table>
+  <tr>
+    <td></td>
+    <td><%= label_tag 'Animate' %> <i>(moving, living things, for example humans or animals)</i></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :describe_object, 'animate_human' %></td>
+    <td><%= label_tag 'Human' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :describe_object, 'animate_animal' %></td>
+    <td><%= label_tag 'Animal' %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= label_tag 'Inanimate' %> <i>(non-living things and plants)</i></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :describe_object, 'inanimate_natural ' %></td>
+    <td><%= label_tag 'Natural' %></td>
+  </tr>
+  <tr>
+    <td><%= radio_button_tag :describe_object, 'inanimate_man_made' %></td>
+    <td><%= label_tag 'Man-made' %></td>
+  </tr>
+</table>
+</div>

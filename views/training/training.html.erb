@@ -1,0 +1,20 @@
+<h1>Example : Image Quality</h1>
+<!--<%= session[:test_set] %>
+<%= session[:subtask] %>
+<%= session[:first] %>-->
+
+<p>
+  In this experiment, you will be asked to rate the visual quality of the images you see. A low quality image in this
+  experiment contains <b>blur distortions</b>.<br>
+  Below is an example of a <b>bad</b> quality image.
+</p>
+<br>
+
+<div id="test_image">
+  <%= link_to image_tag('WomanHatLow.bmp'), '#' %>
+</div>
+
+<div class="buttons">
+  <%= link_to "Next", training2_path, class: "btn btn-large btn-primary" %>
+</div>
+

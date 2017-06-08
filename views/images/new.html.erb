@@ -1,0 +1,34 @@
+<p>
+  Click on the play button to see the image. Attention! The image will appear for less than 1 second, and will only be
+  shown once!
+</p>
+
+<div id="image_container" onClick="show()" style="background: black url(/images/play_button.png) no-repeat center center;">
+  <div id="test_image" style="visibility: hidden;">
+    <%= link_to image_tag(@img.filepath), '#' %>
+  </div>
+</div>
+
+<div class="buttons">
+  <%= button_to 'Next', question_path, class: 'btn btn-large btn-primary',
+                :name => 'to_questions', :disabled => true %>
+</div>
+
+<script>
+    var showTime = <%= session[:view_time] %>;
+    var seen = false;
+
+    function show() {
+        if (!seen) {
+            seen = !seen;
+            document.getElementById("test_image").style.visibility = "visible";
+            setTimeout(hide, showTime);
+        }
+    }
+
+    function hide() {
+        document.getElementById("test_image").style.visibility = "hidden";
+        document.getElementById("image_container").style.background = "black";
+        $("input[name='to_questions']").removeAttr("disabled");
+    }
+</script>
