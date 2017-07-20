@@ -2,13 +2,33 @@
     <div id="test_image">
       <%= link_to image_tag('zebras.jpg'), '#' %>
     </div>
-<% elsif (session[:img_num]).to_i == 19 %>
+<% elsif (session[:img_num]).to_i == 12 %>
     <div id="test_image">
       <%= link_to image_tag('car.jpg'), '#' %>
     </div>
 <% end %>
 
-<%= render 'question/standalone_ACR' %>
+<div>
+  <table style="width:100%">
+    <tr>
+      <%= range_field_tag :scale_ACR, 3, :in => 1..5, :step => 1, style: 'width:100%;' %>
+    </tr>
+    <tr>
+      <td style="text-align:left" width="12.5%">1</td>
+      <td style="text-align:center">2</td>
+      <td style="text-align:center" width="25%">3</td>
+      <td style="text-align:center" width="25%">4</td>
+      <td style="text-align:right" width="12.5%">5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left" width="12.5%">Bad</td>
+      <td style="text-align:center">Poor</td>
+      <td style="text-align:center" width="25%">Fair</td>
+      <td style="text-align:center" width="25%">Good</td>
+      <td style="text-align:right" width="12.5%">Excellent</td>
+    </tr>
+  </table>
+</div>
 
 <div class="buttons">
   <%= link_to "Next", contentanswer_path, class: "btn btn-large btn-primary" %>

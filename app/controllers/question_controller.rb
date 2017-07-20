@@ -23,37 +23,6 @@ class QuestionController < ApplicationController
             if !session[:training] && !session[:training].nil?
               score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.semantic = params[:semantic_recognition]
-              score.save
-            end
-            case params[:semantic_recognition]
-              when 'indoor' then
-                'indoor_detail'
-              when 'outdoor_natural' then
-                'outdoor_natural_detail'
-              else
-                'outdoor_man_made_detail'
-            end
-
-          when 'indoor_detail' then
-            if !session[:training] && !session[:training].nil?
-              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
-              score.detail = params[:indoor_detail]
-              save_score(score)
-            end
-            reset
-
-          when 'outdoor_natural_detail' then
-            if !session[:training] && !session[:training].nil?
-              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
-              score.detail = params[:outdoor_natural_detail]
-              save_score(score)
-            end
-            reset
-
-          when 'outdoor_man_made_detail' then
-            if !session[:training] && !session[:training].nil?
-              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
-              score.detail = params[:outdoor_man_made_detail]
               save_score(score)
             end
             reset
@@ -78,6 +47,9 @@ class QuestionController < ApplicationController
   end
 
   def reset
+    # If training, sets training to false and redirects to ready path
+    # Else, redirect to new image path
+
     if session[:training].nil? or session[:training] == true
       session[:training] = false
       redirect_to ready_path

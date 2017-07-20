@@ -33,7 +33,6 @@ class UsersController < ApplicationController
       user.save
 
       session[:validation] = 2
-      session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     else
       user = User.find_by(user_id: session[:user_id])
@@ -41,7 +40,6 @@ class UsersController < ApplicationController
       user.save
 
       session[:validation] = nil
-      session[:img_num] = session[:img_num].to_i + 1
       redirect_to show_path
     end
   end
