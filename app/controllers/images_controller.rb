@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
     @img_num = session[:img_num].to_i
 
     if @img_num < (session[:image_ids].length-1)
-      if @img_num == 5 || @img_num == 19
+      if @img_num == 5 || @img_num == 12
         redirect_to content_path
       else
         session[:img_num] = @img_num + 1 #increment image id
