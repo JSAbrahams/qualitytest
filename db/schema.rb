@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20170318152106) do
     t.decimal "distortion"
     t.integer "quality"
     t.text    "semantic"
-    t.text    "detail"
     t.text    "description"
     t.text    "start_time"
     t.text    "end_time"
