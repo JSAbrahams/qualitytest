@@ -47,6 +47,9 @@ class QuestionController < ApplicationController
   end
 
   def reset
+    # If training, sets training to false and redirects to ready path
+    # Else, redirect to new image path
+
     if session[:training].nil? or session[:training] == true
       session[:training] = false
       redirect_to ready_path
