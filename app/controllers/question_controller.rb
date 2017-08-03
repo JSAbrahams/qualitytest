@@ -15,13 +15,6 @@ class QuestionController < ApplicationController
               score.distortion = params[:distortion_visible].to_s == 'yes' ? 1 : 0
               score.quality = params[:scale_ACR]
               score.description = params[:describe_object]
-              score.save
-            end
-            'semantic_recognition'
-
-          when 'semantic_recognition' then
-            if !session[:training] && !session[:training].nil?
-              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.semantic = params[:semantic_recognition]
               save_score(score)
             end

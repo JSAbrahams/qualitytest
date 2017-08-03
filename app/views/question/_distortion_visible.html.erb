@@ -3,19 +3,17 @@
   <i><%= session[:training] || session[:training].nil? ? 'Distortion means any blur in the whole image' : '' %></i>
 </p>
 
-<table>
-  <tr>
-    <td><%= radio_button_tag :distortion_visible, 'yes' %></td>
-    <td><%= label_tag 'Yes' %></td>
-  </tr>
-  <tr>
-    <td><%= radio_button_tag :distortion_visible, 'no' %></td>
-    <td><%= label_tag 'No' %></td>
-  </tr>
-</table>
-
+<label for="distortion_visible_yes">
+  <input id="distortion_visible_yes" name="distortion_visible" type="radio" value="yes">
+  Yes
+</label>
 <br>
+<label for="distortion_visible_no">
+  <input id="distortion_visible_no" name="distortion_visible" type="radio" value="no">
+  No
+</label>
 
+<hr>
 <p>Please indicate the quality of the image on a scale from 1 (bad) to 5 (excellent) below:</p>
 
 <table style="width:100%">
@@ -38,33 +36,47 @@
   </tr>
 </table>
 
-<br>
-
+<hr>
 <p>Please select the best category that describes the object in the picture:</p>
 
-<table>
-  <tr>
-    <td></td>
-    <td><%= label_tag 'Animate' %> <i>(moving, living things, for example humans or animals)</i></td>
-  </tr>
-  <tr>
-    <td><%= radio_button_tag :describe_object, 'animate_human' %></td>
-    <td><%= label_tag 'Human' %></td>
-  </tr>
-  <tr>
-    <td><%= radio_button_tag :describe_object, 'animate_animal' %></td>
-    <td><%= label_tag 'Animal' %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td><%= label_tag 'Inanimate' %> <i>(non-living things and plants)</i></td>
-  </tr>
-  <tr>
-    <td><%= radio_button_tag :describe_object, 'inanimate_natural ' %></td>
-    <td><%= label_tag 'Natural' %></td>
-  </tr>
-  <tr>
-    <td><%= radio_button_tag :describe_object, 'inanimate_man_made' %></td>
-    <td><%= label_tag 'Man-made' %></td>
-  </tr>
-</table>
+<label>Animate</label><i>(moving, living things, for example humans or animals)</i>
+<br>
+<Label for="describe_object_animate_human">
+  <input id="describe_object_animate_human" name="describe_object" type="radio" value="animate_human">
+  Human
+</Label>
+<br>
+<Label for="describe_object_animate_animal">
+  <input id="describe_object_animate_animal" name="describe_object" type="radio" value="animate_animal">
+  Animal
+</Label>
+<br>
+<Label>Inanimate</Label><i>(non-living things and plants)</i>
+<br>
+<Label for="describe_object_inanimate_natural_">
+  <input id="describe_object_inanimate_natural_" name="describe_object" type="radio" value="inanimate_natural ">
+  Natural
+</Label>
+<br>
+<Label for="describe_object_inanimate_man_made">
+  <input id="describe_object_inanimate_man_made" name="describe_object" type="radio" value="inanimate_man_made">
+  Man-Made
+</Label>
+
+<hr>
+<p>Please select the best category that describes the scene in the picture:</p>
+
+<Label for="semantic_recognition_indoor">
+  <input id="semantic_recognition_indoor" name="semantic_recognition" type="radio" value="indoor">
+  Indoor
+</Label>
+<br>
+<Label>
+  <input id="semantic_recognition_outdoor_natural" name="semantic_recognition" type="radio" value="outdoor_natural">
+  Outdoor Natural (for example, mountains, sea, field, etc.)
+</Label>
+<br>
+<Label>
+  <input id="semantic_recognition_outdoor_man_made" name="semantic_recognition" type="radio" value="outdoor_man_made">
+  Outdoor Man-Made (for example, city, buildings, park, etc.)
+</Label>
