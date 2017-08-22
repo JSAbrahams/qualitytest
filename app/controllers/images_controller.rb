@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
     session[:view_time] = Viewtime.find(session[:view_time_ids][@img_num].to_i).viewtime
 
     # Redirect if correct image number and validation is 1 or 2
-    if (@img_num == 5 && session[:validation] == 1) || (@img_num == 12 && session[:validation] == 2)
+    if (@img_num == 5 && session[:validation] == 1) || (@img_num == 11 && session[:validation] == 2)
       return redirect_to content_path
     end
 
