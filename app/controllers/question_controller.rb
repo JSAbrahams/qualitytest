@@ -2,7 +2,7 @@ class QuestionController < ApplicationController
 
   def question
     @user_id = session[:user_id]
-    @image_id = session[:image_ids][session[:img_num].to_i].to_i
+    @image_id = session[:image_ids][session[:img_num].to_i - 1].to_i # decrement as it is a question about prev img
     @view_time = session[:view_time].to_i
 
     puts 'view_time: ' + @view_time.to_i.to_s
@@ -15,13 +15,6 @@ class QuestionController < ApplicationController
               score.distortion = params[:distortion_visible].to_s == 'yes' ? 1 : 0
               score.quality = params[:scale_ACR]
               score.description = params[:describe_object]
-              score.save
-            end
-            'semantic_recognition'
-
-          when 'semantic_recognition' then
-            if !session[:training] && !session[:training].nil?
-              score = Score.find_by(user_id: @user_id, img_id: @image_id, viewtime: @view_time)
               score.semantic = params[:semantic_recognition]
               save_score(score)
             end
