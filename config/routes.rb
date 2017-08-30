@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'totraining' => 'pages#totraining'
   get 'trainreco' => 'pages#trainreco'
   get 'end' => 'pages#end'
+  get 'endmobile' => 'pages#endmobile'
   get 'endwrong' => 'pages#endwrong'
 
   get 'training' => 'training#training'
