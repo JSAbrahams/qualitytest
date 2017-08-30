@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
   def index
     @title = "Home"
-    if params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
+    if browser.device.mobile?
+      redirect_to endmobile_path
+    elsif params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
       # if no parameters, id is user table count size plus 1
       setup(User.count + 1)
     else
