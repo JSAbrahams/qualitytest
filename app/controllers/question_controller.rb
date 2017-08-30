@@ -2,7 +2,7 @@ class QuestionController < ApplicationController
 
   def question
     @user_id = session[:user_id]
-    @image_id = session[:image_ids][session[:img_num].to_i].to_i
+    @image_id = session[:image_ids][session[:img_num].to_i - 1].to_i # decrement as it is a question about prev img
     @view_time = session[:view_time].to_i
 
     puts 'view_time: ' + @view_time.to_i.to_s
