@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def index
     @title = "Home"
-    if browser.device.mobile?
+    if !(browser.platform.linux? || browser.platform.mac? || browser.platform.windows?)
+	  print("Redirected a " + browser.platform.name + " platform to the endmobile page\n")
       redirect_to endmobile_path
     elsif params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
       # if no parameters, id is user table count size plus 1
