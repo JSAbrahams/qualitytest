@@ -1,12 +1,16 @@
 class PagesController < ApplicationController
+  helper_method :mobile?
+
   def index
     @title = "Home"
-    if !(browser.platform.linux? || browser.platform.mac? || browser.platform.windows?)
-	  print("Redirected a " + browser.platform.name + " platform to the endmobile page\n")
+
+    if mobile?
+      print('Redirected a ' + browser.platform.name + " platform to the endmobile page.\n")
       redirect_to endmobile_path
+
     elsif params[:user].nil? && params[:campaign].nil? && params[:mw].nil?
-      # if no parameters, id is user table count size plus 1
-      setup(User.count + 1)
+      setup(User.count + 1) # if no parameters, id is user table count size plus 1
+
     else
       # else, get id from microworkers website
       session[:campaign] = 2 # session[:campaign] = params[:campaign]
@@ -18,7 +22,6 @@ class PagesController < ApplicationController
 
       session[:microworkers] = '1'
       session[:content] = nil
-
       setup(@userid)
     end
   end
@@ -144,6 +147,12 @@ class PagesController < ApplicationController
     else
       CampaignSet.order(:completed).first.id
     end
+  end
+
+  private
+
+  def mobile? # has to be in here because it has access to "request"
+    request.user_agent =~ /\b(Android|iPhone|iPad|Windows Phone|Opera Mobi|Kindle|BackBerry|PlayBook)\b/i
   end
 
 end
